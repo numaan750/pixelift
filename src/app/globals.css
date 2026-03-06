@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+.mycontainer {
+  width: 90%;
+  max-width: 1440px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.blog-content {
+  color: rgb(229 231 235); /* tailwind text-gray-200 */
+}
+
+.blog-content p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3 {
+  color: white;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content h2 {
+  font-size: 1.5rem;
+}
+
+.blog-content h3 {
+  font-size: 1.25rem;
+}
+
+/* Offset anchor jumps below sticky navbar */
+.blog-content h2,
+.blog-content h3 {
+  scroll-margin-top: 110px;
+}
+
+.blog-content a {
+  color: #aabfff;
+  text-decoration: underline;
+}
+
+.blog-content em,
+.blog-content i {
+  font-style: italic;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content pre {
+  background: rgba(24, 24, 27, 0.8);
+  border: 1px solid rgb(39 39 42);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid rgb(39 39 42);
+  padding: 0.75rem;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.blog-content th {
+  background: rgba(24, 24, 27, 0.8);
+  color: white;
+  font-weight: 600;
+}
+
+.blog-content iframe,
+.blog-content video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(39 39 42);
+}
+
+.blog-content iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+/* .row-span-2 img {
+  min-height: 400px;
+}
+
+
+
+@media (min-width: 768px) {
+  .row-span-2 img {
+    min-height: 580px;
+  }
+} */
