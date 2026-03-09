@@ -27,8 +27,8 @@ export default function Page() {
         content={text}
         canonicalPath="/"
         inLanguage="en-US"
-        siteName="AI Soulmate Drawings"
-        appStoreUrl="https://apps.apple.com/us/app/soulmate-art-ai-drawing/id6752238846"
+        siteName="Picelift AI Photo Enhancer"
+        appStoreUrl="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
         appRatingValue={4.7}
         appRatingCount={137}
         offerPrice={0}

@@ -41,7 +41,11 @@ function truncateToMax(text, max) {
  * Enforces ~150–160 characters by appending a localized CTA if needed,
  * and truncating at max with a clean boundary.
  */
-export function formatMetaDescription(text, code, { min = 150, max = 160 } = {}) {
+export function formatMetaDescription(
+  text,
+  code,
+  { min = 150, max = 160 } = {},
+) {
   let desc = normalizeWhitespace(text);
   const cta = CTA_BY_CODE[code] || CTA_BY_CODE.us;
 
@@ -63,9 +67,9 @@ export function formatMetaDescription(text, code, { min = 150, max = 160 } = {})
 
 export const seo = {
   us: {
-    title: `AI Soulmate Drawing Generator – Reveal Your Destiny | ${BRAND}`,
+    title: `Pixelift AI Photo Enhancer – Improve Image Quality Instantly | ${BRAND}`,
     description:
-      "Create an AI soulmate drawing and future partner sketch in minutes with Soulmate Aura. Fast, fun, and private—get your romantic AI portrait today. Try it free.",
+      "Enhance and upscale your photos instantly with Pixelift AI Photo Enhancer. Fix blurry images, improve quality, sharpen details, and transform low-resolution photos into high-quality HD images in seconds. Try it free.",
   },
   uk: {
     title: `AI Soulmate Drawing Generator – See Your Future Love | ${BRAND}`,
