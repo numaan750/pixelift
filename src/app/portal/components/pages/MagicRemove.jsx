@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import HomeAuraLoadingScreen from "../PixeliftLoadingScreen";
+import { AppContext } from "@/context/Appcontext";
 
 const tools = [
   {
@@ -375,6 +376,7 @@ const ResultPopup = ({ tool, uploadedImage, beforeImage, onClose }) => {
 
 // ─── Upload Screen (Screen 2) ─────────────────────────────────────────────────
 const UploadScreen = ({ tool, onBack, onMessageSent }) => {
+  const { credits, setCredits, user, setUser } = useContext(AppContext);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -473,6 +475,17 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
           return;
         }
         throw new Error(data.message || "Generation failed");
+      }
+
+      if (data.creditsLeft !== undefined) {
+        const newCredits =
+          data.creditsLeft === "unlimited" ? Infinity : data.creditsLeft;
+        setCredits(newCredits);
+        if (user) {
+          const updatedUser = { ...user, credits: newCredits };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+        }
       }
 
       setUploadedImage(data.imageUrl);
