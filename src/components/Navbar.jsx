@@ -143,20 +143,20 @@ const Navbar = ({ navLinks, country }) => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-              target="blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/home-images/App-Store.png"
-                alt={altFromSrcOrAlt({ alt: "App Store", locale: country })}
-                width={180}
-                height={60}
-                className="h-11 md:h-12 w-auto cursor-pointer"
-              />
-            </a>
-          </div>
+  <button
+    onClick={() => router.push("/portal/login")}
+    className="px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+  >
+    Login
+  </button>
+
+  <button
+    onClick={() => router.push("/portal/login?mode=signup")}
+    className="px-5 py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-medium"
+  >
+    Sign Up
+  </button>
+</div>
 
           <button
             className="md:hidden text-3xl z-50 relative"
@@ -181,20 +181,20 @@ const Navbar = ({ navLinks, country }) => {
             ))}
 
             <div className="pt-4 flex flex-col gap-3">
-              <a
-                href="https://apps.apple.com/us/app/soulmate-art-ai-drawing/id6752238846"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/home-images/App-Store.png"
-                  alt={altFromSrcOrAlt({ alt: "App Store", locale: country })}
-                  width={180}
-                  height={60}
-                  className="h-11 md:h-12 w-auto cursor-pointer"
-                />
-              </a>
-            </div>
+  <button
+    onClick={() => router.push("/portal/login")}
+    className="w-full py-3 rounded-full border border-white/20 text-white"
+  >
+    Login
+  </button>
+
+  <button
+    onClick={() => router.push("/portal/login?mode=signup")}
+    className="w-full py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white"
+  >
+    Sign Up
+  </button>
+</div>
           </div>
         )}
       </div>
