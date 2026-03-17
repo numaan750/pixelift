@@ -212,25 +212,127 @@ const PremiumPopup = ({ isOpen, onClose }) => {
               </p>
 
               <button
-                onClick={async () => {
-                  try {
-                    setActivating(true);
-                    await activatePremium(plan);
-                    setActivating(false);
-                    onClose();
-                    toast.success("Premium activated! Enjoy all features.");
-                  } catch (err) {
-                    setActivating(false);
-                    toast.error(
-                      "Failed to activate premium. Please try again.",
-                    );
-                  }
-                }}
+                // onClick={async () => {
+                //   try {
+                //     setActivating(true);
+                //     await activatePremium(plan);
+                //     setActivating(false);
+                //     onClose();
+                //     toast.success("Premium activated! Enjoy all features.");
+                //   } catch (err) {
+                //     setActivating(false);
+                //     toast.error(
+                //       "Failed to activate premium. Please try again.",
+                //     );
+                //   }
+                // }}
+                onClick={() => setActivating(true)}
                 disabled={activating}
                 className="w-full mb-4 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] cursor-pointer text-white px-4 py-3 sm:py-4 rounded-full font-semibold hover:bg-[#98ADEE] transition text-sm sm:text-base disabled:opacity-70 flex items-center justify-center relative"
               >
                 {activating ? (
-                  <span>Activating...</span>
+                  // <span>Activating...</span>
+                  <svg
+                    className="animate-spin h-6 w-6 text-white"
+                    viewBox="0 0 50 50"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                    >
+                      <line x1="25" y1="5" x2="25" y2="12" opacity="1" />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(30 25 25)"
+                        opacity="0.9"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(60 25 25)"
+                        opacity="0.8"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(90 25 25)"
+                        opacity="0.7"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(120 25 25)"
+                        opacity="0.6"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(150 25 25)"
+                        opacity="0.5"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(180 25 25)"
+                        opacity="0.4"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(210 25 25)"
+                        opacity="0.3"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(240 25 25)"
+                        opacity="0.25"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(270 25 25)"
+                        opacity="0.2"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(300 25 25)"
+                        opacity="0.15"
+                      />
+                      <line
+                        x1="25"
+                        y1="5"
+                        x2="25"
+                        y2="12"
+                        transform="rotate(330 25 25)"
+                        opacity="0.1"
+                      />
+                    </g>
+                  </svg>
                 ) : (
                   <span className="flex items-center gap-2">
                     <span>Continue</span>
