@@ -578,7 +578,7 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
         <input
           ref={colorInputRef}
           type="color"
-          className="hidden"
+          className="absolute opacity-0 w-0 h-0"
           onChange={(e) => {
             setPickedColor(e.target.value);
             setSelectedColor("Pick Color");

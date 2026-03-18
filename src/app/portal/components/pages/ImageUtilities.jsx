@@ -43,7 +43,7 @@ const tools = [
     buttonLabel: "Generate Product Photo",
     bg: "#1D2933",
     icon: "/svgs/tools/Product-Photo.svg",
-    previewImage: "/images/Enhance/product-photo.png",
+    previewImage: "/images/Enhance/product-Photo.png",
   },
   {
     id: "zoom",
