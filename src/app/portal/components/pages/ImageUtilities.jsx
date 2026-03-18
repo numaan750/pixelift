@@ -42,7 +42,7 @@ const tools = [
     uploadHint: "Upload your product photo",
     buttonLabel: "Generate Product Photo",
     bg: "#1D2933",
-    icon: "/svgs/tools/product-photo.svg",
+    icon: "/svgs/tools/Product-Photo.svg",
     previewImage: "/images/Enhance/product-photo.png",
   },
   {
