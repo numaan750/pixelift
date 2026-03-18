@@ -296,8 +296,8 @@ export default function AiToolsExplore({ resetExplore }) {
       ? EXPLORE_IMAGES
       : EXPLORE_IMAGES.filter((img) => img.category === activeTool);
   return (
-    <div className=" min-h-screen px-4 py-5">
-      <h2 className="text-[16px] font-semibold text-white mb-3">CATEGORIES</h2>
+    <div className=" min-h-screen">
+      <h2 className="text-[16px] font-semibold text-white mb-3">Categories</h2>
       <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide w-full">
         {AI_TOOLS.map((tool) => {
           const isActive = activeTool === tool.id;
@@ -318,7 +318,7 @@ export default function AiToolsExplore({ resetExplore }) {
         })}
       </div>
       <h2 className="text-[16px] font-semibold text-white mt-6 mb-3">
-        INSPIRATION
+        Inspiration
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">

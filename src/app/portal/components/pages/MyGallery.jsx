@@ -274,7 +274,7 @@ const MyGallery = () => {
   return (
     <div className="text-white">
       <div className="flex gap-3 mb-6">
-        <p className="text-lg font-semibold">Recent Activity</p>
+        <p className="text-[16px] font-semibold">Recent Activity</p>
       </div>
 
       {gallery.length === 0 ? (

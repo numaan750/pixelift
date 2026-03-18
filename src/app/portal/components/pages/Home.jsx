@@ -170,8 +170,8 @@ const Home = ({
         </p>
       </div>
 
-      <h4 className="text-[12px] sm:text-[16px] font-semibold text-white tracking-widest uppercase mt-6 mb-3">
-        SELECT AN OPTION
+      <h4 className="text-[12px] sm:text-[16px] font-semibold text-white mt-6 mb-3">
+        Select a Option
       </h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
         {features.map((feature, index) => (
@@ -207,7 +207,7 @@ const Home = ({
       </div>
       <div className="mt-10">
         <div className="flex justify-between items-center mb-4">
-          <h4 className="text-[16px] font-semibold text-[]">Explore Ideas</h4>
+          <h4 className="text-[16px] font-semibold">Explore Ideas</h4>
 
           <button
             onClick={() => handleSectionChange("explore")}

@@ -560,8 +560,8 @@ const PhotoTools = ({ onMessageSent }) => {
   }
 
   return (
-    <div className="flex flex-col h-full overflow-y-auto scrollbar-hide gap-4 p-2 pb-6">
-      <p className="text-[12px] font-semibold text-white uppercase tracking-widest">
+    <div className="flex flex-col h-full overflow-y-auto scrollbar-hide gap-4 pb-6">
+      <p className="text-[16px] font-semibold text-white">
         Select a Tool to Get Started
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
