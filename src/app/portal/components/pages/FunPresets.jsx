@@ -61,7 +61,7 @@ const styles = [
   { label: "Suprise Me", image: "/images/fun-preset/Avatar/Surprise-Me.png" },
   { label: "Anime", image: "/images/fun-preset/Avatar/Anime.png" },
   { label: "Sketch", image: "/images/fun-preset/Avatar/Sketch.png" },
-  { label: "Cartoon", image: "/images/fun-preset/Avatar/cartoon.png" },
+  { label: "Cartoon", image: "/images/fun-preset/Avatar/Avatar-Cartoon.png" },
   { label: "3D Avatar", image: "/images/fun-preset/Avatar/3D-Avatar.png" },
   { label: "Line Art", image: "/images/fun-preset/Avatar/Line-Art.png" },
   { label: "Water Color", image: "/images/fun-preset/Avatar/Water-Color.png" },
