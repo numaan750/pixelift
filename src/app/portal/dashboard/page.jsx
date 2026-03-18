@@ -134,7 +134,6 @@ const SoulmateSidebar = () => {
                   alt="Home icon"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "home" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
@@ -167,7 +166,6 @@ const SoulmateSidebar = () => {
                   alt="Image Utilities"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "interior-design" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
@@ -189,7 +187,7 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                key={activeSection}
+                // key={activeSection}
                   src={
                     activeSection === "exterior-design"
                       ? "/svgs/magic-remove-active.svg"
@@ -198,7 +196,6 @@ const SoulmateSidebar = () => {
                   alt="NIGHT-MARE"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "exterior-design" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
@@ -231,7 +228,6 @@ const SoulmateSidebar = () => {
                   alt="Day-Dream"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "garden-design" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
@@ -263,7 +259,6 @@ const SoulmateSidebar = () => {
                   alt="Home icon"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "explore" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
@@ -294,7 +289,6 @@ const SoulmateSidebar = () => {
                   alt="History"
                   width={20}
                   height={20}
-                  className=""
                 />
                 <span
                   className={`font-medium text-[14px] ${activeSection === "my-gallery" ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] bg-clip-text text-transparent" : ""}`}
