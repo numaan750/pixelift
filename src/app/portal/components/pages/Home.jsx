@@ -177,31 +177,36 @@ const Home = ({
         </p>
       </div>
 
-      <h4 className="text-[12px] sm:text-[16px] font-semibold text-white mt-6 mb-3">
+      <h4 className="text-[12px] sm:text-[16px] font-semibold text-white mt-6">
         Select a Option
       </h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         {features.map((feature, index) => (
           <div
             key={index}
             onClick={() =>
               feature.onClick({ handleSectionChange, handlePremiumSection })
             }
-            className="relative bg-[#1D2933] rounded-4xl overflow-hidden cursor-pointer"
+            className="relative bg-[#1D2933] rounded-[50px] overflow-hidden cursor-pointer"
           >
-            <div className="relative w-full h-48 sm:h-56">
-              <Image src={feature.image} alt={feature.label} fill />
+            <div className="relative w-full aspect-[12/7] overflow-hidden">
+              <Image
+                src={feature.image}
+                alt={feature.label}
+                fill
+                className="object-contain object-top"
+              />
             </div>
-            <div className="p-2 flex items-center justify-between">
-              <div className="ml-4">
-                <h4 className="text-[18px] font-semibold mb-1 bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF] bg-clip-text text-transparent">
+            <div className="p-3 sm:p-4 flex items-center justify-between gap-2 ">
+              <div className="ml-2">
+                <h4 className="text-[18px] font-semibold bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF] bg-clip-text text-transparent">
                   {feature.label}
                 </h4>
                 <p className="text-white/70 text-[15px]">
                   {feature.description}
                 </p>
               </div>
-              <div className="w-14 h-14 sm:w-14 sm:h-14 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF]">
+              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF]">
                 <img
                   src="/svgs/ARROW.svg"
                   alt="Arrow"
