@@ -849,15 +849,15 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
 const ToolCard = ({ tool, onClick }) => (
   <div
     onClick={() => onClick(tool)}
-    className="relative bg-[#1D2933] rounded-4xl overflow-hidden cursor-pointer"
+    className="relative bg-[#1D2933] [40px] sm:rounded-[45px] overflow-hidden cursor-pointer"
   >
     {" "}
-    <div className="relative w-full h-48 sm:h-50">
+    <div className="relative w-full aspect-[15/10]">
       <Image
         src={tool.previewImage}
         alt={tool.label}
         fill
-        className="object-cover rounded-b-2xl "
+        className="object-contain "
       />
     </div>
     <div className="p-2 flex items-center justify-between">

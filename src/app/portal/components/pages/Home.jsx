@@ -197,8 +197,8 @@ const Home = ({
                 className="object-contain object-top"
               />
             </div>
-            <div className="p-3 sm:p-4 flex items-center justify-between gap-2 ">
-              <div className="ml-2">
+            <div className="p-3 sm:p-3 flex items-center justify-between gap-2 ">
+              <div className="ml-4">
                 <h4 className="text-[18px] font-semibold bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF] bg-clip-text text-transparent">
                   {feature.label}
                 </h4>
