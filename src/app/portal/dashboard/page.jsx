@@ -121,11 +121,10 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full cursor-pointer flex items-center gap-3 ${
                   activeSection === "home"
                     ? "bg-[#12171B] text-white "
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B] "
                 }`}
               >
                 <Image
-                key={activeSection}
                   src={
                     activeSection === "home"
                       ? "/svgs/home-active.svg"
@@ -157,7 +156,6 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                key={activeSection}
                   src={
                     activeSection === "interior-design"
                       ? "/svgs/image-utiliz-active.svg"
@@ -187,7 +185,6 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                // key={activeSection}
                   src={
                     activeSection === "exterior-design"
                       ? "/svgs/magic-remove-active.svg"
@@ -219,7 +216,6 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                key={activeSection}
                   src={
                     activeSection === "garden-design"
                       ? "/svgs/fun-preset-active.svg"
@@ -250,7 +246,6 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                key={activeSection}
                   src={
                     activeSection === "explore"
                       ? "/svgs/Explore-active.svg"
@@ -280,7 +275,6 @@ const SoulmateSidebar = () => {
                 }`}
               >
                 <Image
-                key={activeSection}
                   src={
                     activeSection === "my-gallery"
                       ? "/svgs/History-active.svg"
