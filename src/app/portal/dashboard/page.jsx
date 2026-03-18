@@ -152,7 +152,7 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full  cursor-pointer flex items-center gap-3 ${
                   activeSection === "interior-design"
                     ? "bg-[#12171B] text-white "
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B]"
                 }`}
               >
                 <Image
@@ -181,7 +181,7 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full  cursor-pointer flex items-center gap-3 ${
                   activeSection === "exterior-design"
                     ? "bg-[#12171B] text-white "
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B]"
                 }`}
               >
                 <Image
@@ -212,7 +212,7 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full cursor-pointer flex items-center gap-3 ${
                   activeSection === "garden-design"
                     ? "bg-[#12171B] text-white"
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B]"
                 }`}
               >
                 <Image
@@ -242,7 +242,7 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full  cursor-pointer flex items-center gap-3 mt-5 ${
                   activeSection === "explore"
                     ? "bg-[#12171B] text-white "
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B]"
                 }`}
               >
                 <Image
@@ -271,7 +271,7 @@ const SoulmateSidebar = () => {
                 className={`group w-full text-left px-4 py-3 rounded-full  cursor-pointer flex items-center gap-3 ${
                   activeSection === "my-gallery"
                     ? "bg-[#12171B] text-white "
-                    : "text-[#F3FCFF] hover:bg-[#12171B] hover:text-white"
+                    : "hover:bg-[#12171B]"
                 }`}
               >
                 <Image
@@ -295,7 +295,7 @@ const SoulmateSidebar = () => {
               {!isPremium && (
                 <button
                   onClick={() => setIsPremiumPopupOpen(true)}
-                  className="w-full text-left cursor-pointer px-4 py-3 rounded-full  flex items-center gap-3 text-[#F3FCFF] hover:bg-[#12171B] hover:text-white group"
+                  className="w-full text-left cursor-pointer px-4 py-3 rounded-full  flex items-center gap-3 hover:bg-[#12171B] group"
                 >
                   <Image
                     src="/svgs/Primium-icon-active.svg"
