@@ -40,7 +40,7 @@ const HomeAuraLoadingScreen = () => {
           </div>
         </div>
 
-        <p className="text-[#F3FCFF] text-base sm:text-lg md:text-xl font-bold mt-1 sm:mt-2">
+        <p className="text-[#F3FCFF] text-base sm:text-lg md:text-xl font-bold">
           Working on it...
         </p>
       </div>

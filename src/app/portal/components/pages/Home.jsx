@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { EXPLORE_IMAGES } from "./Explore";
+import { IoShareSocialSharp } from "react-icons/io5";
+import { GiSaveArrow } from "react-icons/gi";
 
-const ResultPopup = ({ imageSrc, onClose }) => {
+const ResultScreen = ({ imageSrc, onClose }) => {
   const handleSave = async () => {
     try {
       const response = await fetch(imageSrc);
@@ -40,25 +42,32 @@ const ResultPopup = ({ imageSrc, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-      <div className="bg-[#12171B] rounded-xl w-full max-w-[400px] p-3 relative border border-[#ABD8FC80]">
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#F3F3F3] text-black flex items-center justify-center z-30 cursor-pointer text-sm font-bold"
-        >
-          ✕
-        </button>
-        <div
-          className="relative mx-5 mt-3 rounded-xl overflow-hidden bg-white"
-          style={{ height: "330px" }}
-        >
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto flex flex-col gap-4 pb-4">
+        <div className="flex items-center gap-2">
+          <button onClick={onClose} className="text-white cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 19l-7-7 7-7"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <h4 className="text-[16px] font-semibold text-white">Result</h4>
+        </div>
+        <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#3B7FFF]/20 to-[#2CAA78]/20 border border-[#ABD8FC80] h-[280px] sm:h-[320px] md:h-[360px]">
           <img
             src={imageSrc}
             alt="explore result"
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="flex gap-3 p-5 mt-2">
+      </div>
+      <div className="flex-shrink-0 bg-[#12171B] flex flex-col items-center gap-3 pt-4 pb-2 px-2">
+        <div className="flex w-full sm:w-[400px] gap-3">
           <button
             onClick={async () => {
               try {
@@ -69,7 +78,6 @@ const ResultPopup = ({ imageSrc, onClose }) => {
                   const file = new File([blob], "pixelift-result.jpg", {
                     type: blob.type,
                   });
-
                   if (
                     navigator.canShare &&
                     navigator.canShare({ files: [file] })
@@ -96,29 +104,15 @@ const ResultPopup = ({ imageSrc, onClose }) => {
                 }
               }
             }}
-            className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
+            className="flex-1 py-2.5 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] sm:text-[18px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
           >
-            <Image
-              src="/svgs/share.svg"
-              alt="share"
-              width={20}
-              height={20}
-              className="w-[18px] h-[18px] object-contain"
-            />
-            SHARE
+            <IoShareSocialSharp /> Share
           </button>
           <button
             onClick={handleSave}
-            className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
+            className="flex-1 py-2.5 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] sm:text-[18px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
           >
-            <Image
-              src="/svgs/Save.svg"
-              alt="save"
-              width={20}
-              height={20}
-              className="w-[18px] h-[18px] object-contain"
-            />
-            SAVE
+            <GiSaveArrow /> Save
           </button>
         </div>
       </div>
@@ -133,6 +127,7 @@ const Home = ({
   setActiveSubTab,
 }) => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showResult, setShowResult] = useState(false);
 
   const firstEightImages = EXPLORE_IMAGES.slice(0, 8);
   const features = [
@@ -158,6 +153,18 @@ const Home = ({
       description: "Instantly restyle your photos with flair",
     },
   ];
+
+  if (showResult && selectedImage) {
+    return (
+      <ResultScreen
+        imageSrc={selectedImage.src}
+        onClose={() => {
+          setShowResult(false);
+          setSelectedImage(null);
+        }}
+      />
+    );
+  }
   return (
     <div className="space-y-2">
       <div className="text-center">
@@ -221,7 +228,10 @@ const Home = ({
           {firstEightImages.map((img) => (
             <div
               key={img.id}
-              onClick={() => setSelectedImage(img)}
+              onClick={() => {
+                setSelectedImage(img);
+                setShowResult(true);
+              }}
               className="relative rounded-2xl overflow-hidden cursor-pointer aspect-square border-2 border-transparent hover:border-gray-300 transition"
             >
               <Image
@@ -234,12 +244,6 @@ const Home = ({
           ))}
         </div>
       </div>
-      {selectedImage && (
-        <ResultPopup
-          imageSrc={selectedImage.src}
-          onClose={() => setSelectedImage(null)}
-        />
-      )}
     </div>
   );
 };

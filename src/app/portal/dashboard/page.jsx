@@ -391,7 +391,10 @@ const SoulmateSidebar = () => {
                       />
                     )}
                     {activeSection === "my-gallery" && (
-                      <MyGallery key={galleryResetCount} />
+                      <MyGallery
+                        key={galleryResetCount}
+                        onMessageSent={() => setIsPremiumPopupOpen(true)}
+                      />
                     )}
                   </div>
                 </div>

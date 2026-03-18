@@ -2,6 +2,9 @@
 import Image from "next/image";
 import { useState, useRef, useContext } from "react";
 import HomeAuraLoadingScreen from "../PixeliftLoadingScreen";
+import { RiEdit2Fill } from "react-icons/ri";
+import { IoShareSocialSharp } from "react-icons/io5";
+import { GiSaveArrow } from "react-icons/gi";
 import { AppContext } from "@/context/Appcontext";
 
 const tools = [
@@ -124,8 +127,14 @@ const ViewAllPopup = ({ title, children, onClose }) => (
   </div>
 );
 
-// ─── Result Popup ─────────────────────────────────────────────────────────────
-const ResultPopup = ({ tool, uploadedImage, beforeImage, onClose }) => {
+// ─── Result Screen─────────────────────────────────────────────────────────────
+const ResultScreen = ({
+  tool,
+  uploadedImage,
+  beforeImage,
+  onClose,
+  onEdit,
+}) => {
   const [showSplitter, setShowSplitter] = useState(false);
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
@@ -195,18 +204,25 @@ const ResultPopup = ({ tool, uploadedImage, beforeImage, onClose }) => {
   const beforeImg = beforeImage || uploadedImage;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-      <div className="bg-[#12171B] rounded-xl w-full max-w-[400px] p-3 relative border border-[#ABD8FC80]">
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#F3F3F3] text-black flex items-center justify-center z-30 cursor-pointer text-sm font-bold"
-        >
-          ✕
-        </button>
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto flex flex-col gap-4 pb-4">
+        <div className="flex items-center gap-2">
+          <button onClick={onClose} className="text-white cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 19l-7-7 7-7"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <h4 className="text-[16px] font-semibold text-white">Result</h4>
+        </div>
         <div
           ref={containerRef}
-          className="relative mx-5 mt-3 rounded-xl overflow-hidden bg-white"
-          style={{ height: "330px" }}
+          className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#3B7FFF]/20 to-[#2CAA78]/20 border border-[#ABD8FC80] h-[280px] sm:h-[320px] md:h-[360px]"
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
@@ -307,7 +323,9 @@ const ResultPopup = ({ tool, uploadedImage, beforeImage, onClose }) => {
             />
           </button>
         </div>
-        <div className="flex gap-3 p-5 mt-2">
+      </div>
+      <div className="flex-shrink-0 bg-[#12171B] flex flex-col items-center gap-3 pt-4 pb-2 px-2">
+        <div className="flex gap-3 w-full sm:w-[400px]">
           <button
             onClick={async () => {
               try {
@@ -344,31 +362,174 @@ const ResultPopup = ({ tool, uploadedImage, beforeImage, onClose }) => {
                 }
               }
             }}
-            className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
+            className="flex-1 py-2.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] sm:text-[18px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
           >
-            <Image
-              src="/svgs/share.svg"
-              alt="share"
-              width={20}
-              height={20}
-              className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px] object-contain"
-            />{" "}
-            SHARE
+            <IoShareSocialSharp /> Share
           </button>
           <button
-            onClick={handleSave}
-            className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
+            onClick={onEdit}
+            className="flex-1 py-2.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] sm:text-[18px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
           >
-            <Image
-              src="/svgs/Save.svg"
-              alt="share"
-              width={20}
-              height={20}
-              className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px] object-contain"
-            />{" "}
-            SAVE
+            <RiEdit2Fill /> Edit
           </button>
         </div>
+        <div className="flex w-full sm:w-[400px]">
+          <button
+            onClick={handleSave}
+            className="flex-1 py-2.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-semibold text-[15px] sm:text-[18px] flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 transition"
+          >
+            <GiSaveArrow /> Save
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ─── Edit Screen (Screen 2) ─────────────────────────────────────────────────
+const EditScreen = ({ tool, generatedImage, onBack, onMessageSent }) => {
+  const { credits, setCredits, user, setUser } = useContext(AppContext);
+  const [editPrompt, setEditPrompt] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [resultImage, setResultImage] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+
+  const handleEditGenerate = async () => {
+    if (!editPrompt.trim()) return;
+    if (credits !== Infinity && credits <= 0) {
+      onMessageSent?.();
+      return;
+    }
+    setLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/generate`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            toolId: tool.id,
+            section: "image-utilities",
+            uploadedImage: generatedImage,
+            toolOptions: { editPrompt },
+          }),
+        },
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        if (data.needsPremium) {
+          onMessageSent?.();
+          return;
+        }
+        throw new Error(data.message || "Edit failed");
+      }
+      if (data.creditsLeft !== undefined) {
+        const newCredits =
+          data.creditsLeft === "unlimited" ? Infinity : data.creditsLeft;
+        setCredits(newCredits);
+        if (user) {
+          const updatedUser = { ...user, credits: newCredits };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+        }
+      }
+      setResultImage(data.imageUrl);
+      setShowResult(true);
+    } catch (error) {
+      console.error("Edit error:", error);
+      alert("Edit failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (showResult) {
+    return (
+      <ResultScreen
+        tool={tool}
+        uploadedImage={resultImage}
+        beforeImage={generatedImage}
+        onClose={onBack}
+        onEdit={() => {
+          setShowResult(false);
+          setResultImage(null);
+          setEditPrompt("");
+        }}
+      />
+    );
+  }
+
+  return (
+    <div className="flex flex-col h-full">
+      {loading && <HomeAuraLoadingScreen />}
+      <div className="flex-1 overflow-y-auto scrollbar-hide flex flex-col gap-4 pb-4">
+        <div className="flex items-center gap-2">
+          <button onClick={onBack} className="text-white cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 19l-7-7 7-7"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <h4 className="text-[16px] font-semibold text-white">Edit Photo</h4>
+        </div>
+        <div
+          className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-[#3B7FFF]/20 to-[#2CAA78]/20 border border-[#ABD8FC80]"
+          style={{ height: "300px" }}
+        >
+          <img
+            src={generatedImage}
+            alt="generated"
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-white text-[14px] font-medium">
+            Describe your changes
+          </label>
+          <textarea
+            value={editPrompt}
+            onChange={(e) => setEditPrompt(e.target.value)}
+            placeholder="e.g. Make the background white, add more brightness..."
+            className="w-full bg-gradient-to-b from-[#3B7FFF]/20 to-[#2CAA78]/20 border border-[#ABD8FC80] text-white text-[14px] rounded-2xl p-4 focus:border-[#3B7FFF] outline-none resize-none placeholder:text-white/40"
+            rows={4}
+          />
+        </div>
+      </div>
+      <div className="flex-shrink-0 bg-[#12171B] flex justify-center">
+        <button
+          onClick={handleEditGenerate}
+          disabled={!editPrompt.trim() || loading}
+          className={`w-[500px] py-3 rounded-full font-semibold text-[18px] text-[#F3F3F3] transition flex items-center justify-center gap-2
+            ${
+              editPrompt.trim() && !loading
+                ? "bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] cursor-pointer hover:opacity-90"
+                : "bg-gray-600 cursor-not-allowed opacity-50"
+            }`}
+        >
+          {loading ? (
+            "Processing..."
+          ) : (
+            <>
+              <Image
+                src="/svgs/generate-icon.svg"
+                alt="Generate"
+                width={20}
+                height={20}
+                className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] md:w-[20px] md:h-[20px] object-contain"
+              />
+              Generate Edit
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
@@ -381,6 +542,7 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
   const [selectedColor, setSelectedColor] = useState("Soft White");
@@ -416,6 +578,10 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
   const handleGenerate = async () => {
     if (!uploadedFile) return;
     if (tool.id === "remove-object" && !prompt.trim()) return;
+    if (credits !== Infinity && credits <= 0) {
+      onMessageSent && onMessageSent();
+      return;
+    }
     setLoading(true);
 
     try {
@@ -512,11 +678,53 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
     !!uploadedFile &&
     !loading &&
     (tool.id !== "remove-object" || prompt.trim().length > 0);
+
+  if (showEdit) {
+    return (
+      <EditScreen
+        tool={tool}
+        generatedImage={uploadedImage}
+        onBack={() => {
+          setShowEdit(false);
+          setShowResult(true);
+        }}
+        onMessageSent={onMessageSent}
+      />
+    );
+  }
+
+  if (showResult) {
+    return (
+      <ResultScreen
+        tool={tool}
+        uploadedImage={uploadedImage}
+        beforeImage={beforeImage}
+        onClose={() => setShowResult(false)}
+        onEdit={() => {
+          setShowResult(false);
+          setShowEdit(true);
+        }}
+      />
+    );
+  }
   return (
-    <div className="flex-1 overflow-y-auto scrollbar-hide gap-4 p-2 pb-4 flex flex-col">
+    <div className="flex-1 overflow-y-auto scrollbar-hide gap-4 pb-4 flex flex-col">
       {loading && <HomeAuraLoadingScreen />}
-      <div className="flex-1 overflow-y-auto scrollbar-hide gap-4 p-2 pb-4 flex flex-col">
-        <h4 className="text-[16px] font-semibold text-white">Add A Photo</h4>
+      <div className="flex-1 overflow-y-auto scrollbar-hide gap-4  pb-4 flex flex-col">
+        <div className="flex items-center gap-2">
+          <button onClick={onBack} className="text-white cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 19l-7-7 7-7"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <h4 className="text-[16px] font-semibold text-white">Add A Photo</h4>
+        </div>{" "}
         <div
           onClick={() => !uploadedImage && fileInputRef.current?.click()}
           onDragOver={(e) => {

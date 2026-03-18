@@ -155,6 +155,7 @@ const AppProvider = ({ children }) => {
 
       if (data.status === "success") {
         setIsPremium(true);
+        setCredits(Infinity);
         setPremiumExpiryDate(new Date(data.premiumExpiryDate));
         localStorage.setItem("isPremium", "true");
         localStorage.setItem("premiumExpiryDate", data.premiumExpiryDate);
@@ -182,6 +183,7 @@ const AppProvider = ({ children }) => {
     const interval = setInterval(() => {
       if (new Date() > new Date(premiumExpiryDate)) {
         setIsPremium(false);
+        setCredits(0);
         setPremiumExpiryDate(null);
         localStorage.removeItem("isPremium");
         localStorage.removeItem("premiumExpiryDate");

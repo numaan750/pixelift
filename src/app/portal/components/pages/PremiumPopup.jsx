@@ -17,12 +17,18 @@ const PremiumPopup = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-         onClick={() => { setActivating(false); onClose(); }}
+        onClick={() => {
+          setActivating(false);
+          onClose();
+        }}
       />
 
       <div className="relative border-2 border-[#12171B] flex flex-col lg:flex-row w-full max-w-5xl h-[450px] sm:h-auto lg:h-[600px] bg-[#12171B] text-white rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
         <button
-           onClick={() => { setActivating(false); onClose(); }}
+          onClick={() => {
+            setActivating(false);
+            onClose();
+          }}
           className="absolute cursor-pointer top-4 right-4 lg:top-6 lg:right-6 z-10 w-5 h-5 lg:w-10 lg:h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white hover:bg-gray-200 transition"
         >
           <svg
@@ -231,7 +237,6 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                 className="w-full mb-4 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] cursor-pointer text-white px-4 py-3 sm:py-4 rounded-full font-semibold hover:bg-[#98ADEE] transition text-sm sm:text-base disabled:opacity-70 flex items-center justify-center relative"
               >
                 {activating ? (
-                  // <span>Activating...</span>
                   <svg
                     className="animate-spin h-6 w-6 text-white"
                     viewBox="0 0 50 50"
@@ -356,7 +361,10 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                   Term of Use
                 </Link>
                 <button
-                  onClick={() => { setActivating(false); onClose(); }}
+                  onClick={() => {
+                    setActivating(false);
+                    onClose();
+                  }}
                   className="hover:bg-gradient-to-r hover:from-[#3B7FFF] hover:to-[#2CAA78] hover:bg-clip-text hover:text-transparent cursor-pointer transition"
                 >
                   Continue With Free Plan
