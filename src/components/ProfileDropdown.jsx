@@ -142,8 +142,8 @@ const ProfileDropdown = () => {
                   />
                 </div>
                 <Link
-                  href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-                  target="_blank"
+                  href="/conditions"
+                
                   className="text-white font-medium text-xs sm:text-sm"
                 >
                   Terms of Use
@@ -160,8 +160,7 @@ const ProfileDropdown = () => {
                   />
                 </div>
                 <Link
-                  href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-                  target="_blank"
+                  href="/privecypolice"
                   className="text-white font-medium text-xs sm:text-sm"
                 >
                   Privacy Policy

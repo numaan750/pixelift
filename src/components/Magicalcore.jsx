@@ -30,8 +30,7 @@ const Magicalcore = ({ magicalCore, country }) => {
               className="relative flex flex-col items-center w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)]"
             >
               <a
-                href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-                target="blank"
+                href="/portal/login"
                 className="w-full block"
               >
                 <Image

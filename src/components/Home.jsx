@@ -21,8 +21,7 @@ const Home = ({ hero, country }) => {
 
           <div className="flex justify-start md:justify-start">
             <a
-              href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-              target="blank"
+              href="/portal/login"
             >
               <button className="inline-flex cursor-pointer items-center justify-center gap-3 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-medium px-5 sm:px-6 py-3 rounded-full  w-fit">
                 <span className="text-[14px] sm:text-[16px]">
