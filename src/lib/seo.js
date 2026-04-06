@@ -1,4 +1,4 @@
-export const BRAND = "AI Soulmate Drawings";
+export const BRAND = "Pixelift";
 
 const CTA_BY_CODE = {
   us: " Try it free today.",
