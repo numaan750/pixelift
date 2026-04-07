@@ -6,8 +6,8 @@ import { ru } from "../constants/ru";
 import { us } from "../constants/us";
 
 export const metadata = {
-  title: "Privacy Policy – AI Soulmate Drawings",
-  description: "Read the Privacy Policy for AI Soulmate Drawings.",
+  title: "Privacy Policy – Pixelift",
+  description: "Read the Privacy Policy for Pixelift.",
   alternates: { canonical: "/privecypolice" },
   robots: { index: true, follow: true },
 };
@@ -19,7 +19,7 @@ const contentMap = {
 
 const page = async ({ params }) => {
   const { slug } = await params;
-    const text = contentMap[slug] || us;
+  const text = contentMap[slug] || us;
   return (
     <div>
       <Navbar navLinks={text?.navLinks} />

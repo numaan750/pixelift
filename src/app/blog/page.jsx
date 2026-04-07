@@ -9,9 +9,9 @@ import { BLOG_POSTS } from "@/lib/blogPosts";
 import { getAllBlogPostsFromDb } from "@/lib/blogDb";
 
 export const metadata = {
-  title: "Blog – AI Soulmate Drawings",
+  title: "Blog – Pixelift",
   description:
-    "Articles and updates about the AI Soulmate Drawing Generator, how it works, and tips for better results.",
+    "Articles and updates about Pixelift, how it works, and tips for better results.",
   alternates: { canonical: "/blog" },
   robots: { index: true, follow: true },
 };
@@ -45,7 +45,9 @@ export default async function BlogIndexPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLdStringify(breadcrumbJsonLd),
+        }}
       />
       <Navbar navLinks={us.navLinks} country="us" />
       <main className="bg-[#12171B] text-white">
@@ -55,8 +57,8 @@ export default async function BlogIndexPage() {
               Blog
             </h1>
             <p className="mt-3 text-[16px] sm:text-[18px] text-white">
-              Practical tips, product notes, and guides for getting the most out of
-              AI Soulmate Drawings.
+              Practical tips, product notes, and guides for getting the most out
+              of AI Soulmate Drawings.
             </p>
           </header>
 

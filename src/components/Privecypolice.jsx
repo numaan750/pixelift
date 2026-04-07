@@ -2,7 +2,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-
 const PrivacyPolicy = () => {
   return (
     <div id="privacy" className="bg-[#12171B] text-white">
@@ -66,12 +65,12 @@ const PrivacyPolicy = () => {
                 controlled by or is under common control with a party.
               </li>
               <li>
-                <strong>Application</strong> refers to Soulmate Art: AI Drawing,
-                the software program provided by the Company.
+                <strong>Application</strong> refers to Pixelift, the software
+                program provided by the Company.
               </li>
               <li>
                 <strong>Company</strong> (referred to as "We", "Us" or "Our")
-                refers to Soulmate Art: AI Drawing.
+                refers to Pixelift.
               </li>
               <li>
                 <strong>Country</strong> refers to: Pakistan.

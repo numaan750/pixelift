@@ -61,13 +61,13 @@ const Navbar = ({ navLinks, country }) => {
     };
   }, [open]);
 
-
   const scrollOrRoute = (e, targetId, route = "/") => {
     e.preventDefault();
     setOpen(false);
 
     // Don't force users from '/' to '/us' (or any locale). Root should stay selectable.
-    const effectiveRoute = route === "/" && country && pathname !== "/" ? `/${country}` : route;
+    const effectiveRoute =
+      route === "/" && country && pathname !== "/" ? `/${country}` : route;
 
     const element = document.getElementById(targetId);
 
@@ -120,7 +120,7 @@ const Navbar = ({ navLinks, country }) => {
               <div className="w-12 h-12 md:w-12 md:h-12">
                 <Image
                   src="/home-images/pixellift.png"
-                  alt={altFromSrcOrAlt({ alt: "Sulmate", locale: country })}
+                  alt={altFromSrcOrAlt({ alt: "pixellift", locale: country })}
                   width={48}
                   height={48}
                   className="rounded-xl"
@@ -143,20 +143,20 @@ const Navbar = ({ navLinks, country }) => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-  <button
-    onClick={() => router.push("/portal/login")}
-    className="px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
-  >
-    Login
-  </button>
+            <button
+              onClick={() => router.push("/portal/login")}
+              className="px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+            >
+              Login
+            </button>
 
-  <button
-    onClick={() => router.push("/portal/login?mode=signup")}
-    className="px-5 py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-medium"
-  >
-    Sign Up
-  </button>
-</div>
+            <button
+              onClick={() => router.push("/portal/login?mode=signup")}
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-medium"
+            >
+              Sign Up
+            </button>
+          </div>
 
           <button
             className="md:hidden text-3xl z-50 relative"
@@ -181,20 +181,20 @@ const Navbar = ({ navLinks, country }) => {
             ))}
 
             <div className="pt-4 flex flex-col gap-3">
-  <button
-    onClick={() => router.push("/portal/login")}
-    className="w-full py-3 rounded-full border border-white/20 text-white"
-  >
-    Login
-  </button>
+              <button
+                onClick={() => router.push("/portal/login")}
+                className="w-full py-3 rounded-full border border-white/20 text-white"
+              >
+                Login
+              </button>
 
-  <button
-    onClick={() => router.push("/portal/login?mode=signup")}
-    className="w-full py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white"
-  >
-    Sign Up
-  </button>
-</div>
+              <button
+                onClick={() => router.push("/portal/login?mode=signup")}
+                className="w-full py-3 rounded-full bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white"
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         )}
       </div>
