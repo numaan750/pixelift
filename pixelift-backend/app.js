@@ -30,4 +30,5 @@ app.get("/", (req, res) => {
   res.send("Pixelift Backend is running");
 });
 
+
 export default app;
