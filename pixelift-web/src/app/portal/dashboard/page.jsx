@@ -14,6 +14,8 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { AppContext } from "@/context/Appcontext";
 import { Toaster } from "react-hot-toast";
 import Home from "../components/pages/Home";
+import PaymentHistory from "../components/pages/PaymentHistory";
+import { MdPayment } from "react-icons/md";
 
 const SoulmateSidebar = () => {
   const { isPremium, premiumExpiryDate } = useContext(AppContext);
@@ -31,6 +33,7 @@ const SoulmateSidebar = () => {
   const [interiorResetCount, setInteriorResetCount] = useState(0);
   const [exteriorResetCount, setExteriorResetCount] = useState(0);
   const [gardenResetCount, setGardenResetCount] = useState(0);
+  const [paymentHistoryResetCount, setPaymentHistoryResetCount] = useState(0);
 
   const chatSections = [
     "interior-design",
@@ -295,18 +298,62 @@ const SoulmateSidebar = () => {
               {!isPremium && (
                 <button
                   onClick={() => setIsPremiumPopupOpen(true)}
-                  className="w-full text-left cursor-pointer px-4 py-3 rounded-full  flex items-center gap-3 hover:bg-[#12171B] group"
+                  className="w-full text-left cursor-pointer px-4 py-3 rounded-full flex items-center gap-3 hover:bg-[#12171B] group"
                 >
                   <Image
                     src="/svgs/Primium-icon-active.svg"
                     alt="Home icon"
                     width={20}
                     height={20}
-                    className="opacity-70 group-hover:brightness-0 group-hover:invert "
+                    className="opacity-70 group-hover:brightness-0 group-hover:invert"
                   />
                   <span className="text-sm font-medium">Premium Plans</span>
                 </button>
               )}
+
+              {/* Payment History Button */}
+              <button
+                onClick={() => {
+                  handleSectionChange("payment-history");
+                  setActiveSubTab("payment-history");
+                  setOpen(false);
+                }}
+                className={`w-full text-left cursor-pointer px-4 py-3 rounded-full flex items-center gap-3 hover:bg-[#12171B] group ${
+                  activeSection === "payment-history" ? "bg-[#12171B]" : ""
+                }`}
+              >
+                <MdPayment
+                  size={20}
+                  className={
+                    activeSection === "payment-history"
+                      ? "text-[#3B7FFF]"
+                      : "text-white"
+                  }
+                />
+                <span
+                  className="text-sm font-medium"
+                  style={
+                    activeSection === "payment-history"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #3B7FFF, #2CAA78)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : {}
+                  }
+                >
+                  Payment History
+                </span>
+              </button>
+              <div className="px-4 py-3 flex items-center gap-3">
+                <a
+                  href="mailto:support@pixelift.com"
+                  className="text-sm font-medium text-white transition-all duration-200 hover:text-[#3B7FFF] underline"
+                >
+                  support@pixelift.com
+                </a>
+              </div>
             </div>
           </aside>
           <div className="w-full lg:w-[80%] h-full flex overflow-hidden ">
@@ -322,6 +369,7 @@ const SoulmateSidebar = () => {
                       {activeSection === "explore" && "Explore"}
                       {activeSection === "my-gallery" && "History"}
                       {activeSection === "premium-plans" && "Premium Plans"}
+                      {activeSection === "payment-history" && "Payment History"}
                     </h3>
                     <div className="flex items-center gap-3  cursor-pointer">
                       {!isPremium && (
@@ -396,6 +444,9 @@ const SoulmateSidebar = () => {
                         onMessageSent={() => setIsPremiumPopupOpen(true)}
                       />
                     )}
+                    {activeSection === "payment-history" && (
+                      <PaymentHistory key={paymentHistoryResetCount} />
+                    )}
                   </div>
                 </div>
               </div>
@@ -412,4 +463,3 @@ const SoulmateSidebar = () => {
 };
 
 export default SoulmateSidebar;
-
