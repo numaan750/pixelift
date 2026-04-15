@@ -29,3 +29,4 @@ export function isSupportedLocale(value) {
   if (!/^[a-z]{2}$/.test(normalized)) return false;
   return SUPPORTED_LOCALES.includes(normalized);
 }
+

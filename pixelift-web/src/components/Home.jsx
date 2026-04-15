@@ -54,3 +54,4 @@ const Home = ({ hero, country }) => {
 };
 
 export default Home;
+

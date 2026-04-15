@@ -65,3 +65,4 @@ export async function ensureBlogIndexes() {
   await collection.createIndex({ slug: 1 }, { unique: true });
   await collection.createIndex({ publishedAt: -1 });
 }
+

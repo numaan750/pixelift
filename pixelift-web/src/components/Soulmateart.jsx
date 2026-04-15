@@ -84,3 +84,4 @@ const SoulmateArt = ({ soulmateArt, country }) => {
 };
 
 export default SoulmateArt;
+

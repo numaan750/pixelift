@@ -54,3 +54,4 @@ export function altFromSrcOrAlt({ alt, src, fallback, locale } = {}) {
 
   return fallback ?? localizedFallback(locale);
 }
+

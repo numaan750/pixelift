@@ -26,7 +26,6 @@ app.use("/api", generateRoutes);
 // const PORT = process.env.PORT || 8000;
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-
 app.get("/", (req, res) => {
   res.send("Pixelift Backend is running");
 });

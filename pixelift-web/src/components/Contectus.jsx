@@ -220,3 +220,4 @@ const Contectus = ({ contact }) => {
 };
 
 export default Contectus;
+

@@ -10,7 +10,7 @@ export const fr = {
     title: "Dessin d'Âme Sœur IA",
     subTitle: "Générateur",
     description:
-      "Utilisez notre générateur de dessin d'âme sœur IA pour créer un portrait romantique IA et un croquis de votre futur partenaire. Découvrez le visage écrit dans votre destin — instantanément et magnifiquement.",
+      "Utilisez notre générateur de dessin d'âme sœur IA pour créer un portrait romantique IA et un croquis de votre futur partenaire. Découvrez le visage écrit dans votre destin instantanément et magnifiquement.",
     buttonText: "Meilleur Générateur d'Art d'Âme Sœur",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "Générateur de Dessin d'Âme Sœur IA",
@@ -109,7 +109,7 @@ export const fr = {
         name: "Pierre Durand",
       },
       {
-        text: "J'ai adoré le niveau de détail — c'est vraiment magique.",
+        text: "J'ai adoré le niveau de détail c'est vraiment magique.",
         name: "Camille R.",
       },
       {

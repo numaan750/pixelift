@@ -1,6 +1,6 @@
 export const cn = {
   navLinks: [
-    { label: "首页", targetId: "home", route: "/" },
+    { label: "�-页", targetId: "home", route: "/" },
     { label: "功能", targetId: "features", route: "/" },
     { label: "如何工作？", targetId: "how-it-works", route: "/" },
     { label: "应用", targetId: "apps", route: "/" },
@@ -10,7 +10,7 @@ export const cn = {
     title: "AI 灵魂伴侣绘画",
     subTitle: "生成器",
     description:
-      "使用我们的 AI 灵魂伴侣绘画生成器，创作浪漫的 AI 肖像与未来伴侣素描。发现命运中写下的面孔——即时且美丽地揭示灵魂伴侣的外貌。",
+      "使用我们的 AI 灵魂伴侣绘画生成器，创作浪漫的 AI �-像与未来伴侣素描。发现命运中写下的面孔 即时且美丽地揭示灵魂伴侣的�-貌。",
     buttonText: "最佳灵魂伴侣艺术生成器",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "AI 灵魂伴侣绘画生成器",
@@ -18,7 +18,7 @@ export const cn = {
   magicalCore: {
     title: "什么是 AI 灵魂伴侣绘画？",
     description:
-      "AI 灵魂伴侣绘画是一种 AI 驱动的创作流程，结合机器学习与艺术风格，生成浪漫的 AI 肖像、情侣肖像与灵魂伴侣素描。",
+      "AI 灵魂伴侣绘画是一种 AI 驱动的创作流程，结合机器学习与艺术风格，生成浪漫的 AI �-像、情侣�-像与灵魂伴侣素描。",
     features: [
       { Imge: "/home-images/find-your-soulmate.webp", alt: "找到您的灵魂伴侣" },
       { Imge: "/home-images/Unlock-Dream-Wisdom.webp", alt: "解锁梦想智慧" },
@@ -41,23 +41,23 @@ export const cn = {
       tag: "步骤 2",
       title: "AI 唤醒素描",
       description:
-        "一旦收到您的细节，我们先进的 AI 开始将您的能量转化为艺术。使用命理学、情感模式和宇宙数据，系统仔细塑造一个有灵魂的素描。每一条线都由直觉引导，创造一个与您的内在连接产生共鸣的视觉形式。",
+        "一旦收到您的细节，我们先进的 AI 开始将您的能量转�-为艺术。使用命理学、情感模式和宇宙数据，系统仔细塑造一个有灵魂的素描。每一条线都由直觉引导，创造一个与您的内在连接产生共鸣的视觉形式。",
       image: "/home-images/AI-Awakens-the-Sketch.webp",
       alt: "AI 唤醒素描",
     },
     step3: {
       tag: "步骤 3",
-      title: "个性化您的艺术",
+      title: "个性�-您的艺术",
       description:
-        "根据您的偏好定制您的灵魂伴侣肖像。选择艺术风格，如写实、卡通或抽象，并添加个人触感，如颜色、纹理或主题元素。这确保最终结果不仅准确，而且反映您的独特愿景。",
+        "根据您的偏好定制您的灵魂伴侣�-像。选择艺术风格，如写实、卡通�-抽象，并添加个人触感，如颜色、纹理�-主题元素。这确保最终结果不仅准确，而且反映您的独特愿景。",
       image: "/home-images/Reveal-Your-Soulmate.webp",
-      alt: "个性化您的艺术",
+      alt: "个性�-您的艺术",
     },
     step4: {
       tag: "步骤 4",
       title: "揭示您的灵魂伴侣",
       description:
-        "在几秒钟内，您的个性化灵魂伴侣肖像准备好了。下载高分辨率图像，与朋友分享，或将其用作您爱情旅程的灵感。每个肖像都是独一无二的，捕捉了您灵魂伴侣的本质。",
+        "在几秒钟内，您的个性�-灵魂伴侣�-像准备好了。下载高分辨率图像，与朋友分享，�-将其用作您爱情旅程的灵感。每个�-像都是独一无二的，捕捉了您灵魂伴侣的本质。",
       image: "/home-images/Reveal-Your-Soulmate.webp",
       alt: "揭示您的灵魂伴侣",
     },
@@ -65,10 +65,10 @@ export const cn = {
   aiArt: {
     title: "AI 艺术生成器",
     description:
-      "探索我们先进的 AI 艺术生成器，创作浪漫的 AI 肖像与令人惊叹的灵魂伴侣肖像。借助尖端技术，我们的工具将您的信息转化为美丽、个性化的艺术作品。",
+      "探索我们先进的 AI 艺术生成器，创作浪漫的 AI �-像与令人惊叹的灵魂伴侣�-像。借助�-端技术，我们的工具将您的信息转�-为美丽、个性�-的艺术作品。",
     img1: {
       url: "/home-images/ai-soulmate-romantic-portrait.png",
-      alt: "浪漫的 AI 灵魂伴侣肖像",
+      alt: "浪漫的 AI 灵魂伴侣�-像",
     },
     img2: {
       url: "/home-images/future-partner-ai-drawing.png",
@@ -84,7 +84,7 @@ export const cn = {
     },
     img5: {
       url: "/home-images/romantic-couple-ai-portrait.png",
-      alt: "浪漫情侣 AI 肖像",
+      alt: "浪漫情侣 AI �-像",
     },
     img6: {
       url: "/home-images/ai-generated-soulmate-sketch.png",
@@ -104,13 +104,13 @@ export const cn = {
     },
     img10: {
       url: "/home-images/cinematic-romantic-ai-portrait.png",
-      alt: "电影感浪漫 AI 肖像",
+      alt: "电影感浪漫 AI �-像",
     },
   },
   soulmateArt: {
     title: "灵魂伴侣艺术",
     description:
-      "发现通过 AI 生成的灵魂伴侣艺术的魔力。我们的工具使用先进算法创建反映您独特连接的美丽肖像。",
+      "发现通过 AI 生成的灵魂伴侣艺术的魔力。我们的工具使用先进算法创建反映您独特连接的美丽�-像。",
     text1: "用户满意度",
     text2: "5分评分",
     img: "/home-images/Discover-Everything-in-Soulmate-Art.webp",
@@ -121,7 +121,7 @@ export const cn = {
     description: "看看我们的用户对 AI 灵魂伴侣绘画生成器有什么看法。",
     testimonials: [
       {
-        text: "这个工具太神奇了！生成的肖像看起来就像我梦想中的灵魂伴侣。",
+        text: "这个工具太神奇了！生成的�-像看起来就像我梦想中的灵魂伴侣。",
         name: "张三",
       },
       {
@@ -129,7 +129,7 @@ export const cn = {
         name: "李四",
       },
       {
-        text: "AI 技术令人印象深刻。肖像捕捉了情感的本质。",
+        text: "AI 技术令人印象深刻。�-像捕捉了情感的本质。",
         name: "王五",
       },
       {
@@ -138,10 +138,10 @@ export const cn = {
       },
       {
         text: "非常有趣的体验，和朋友分享很开心。",
-        name: "刘颖",
+        name: "刘�-",
       },
       {
-        text: "细节很真实，真的很惊喜。",
+        text: "细节很真实，真的很惊�-�。",
         name: "陈浩",
       },
     ],
@@ -162,8 +162,8 @@ export const cn = {
         answer: "是的，您的照片经过安全处理，不会共享。",
       },
       {
-        question: "我可以定制肖像吗？",
-        answer: "绝对可以！您可以选择风格、颜色和其他偏好。",
+        question: "我可以定制�-像吗？",
+        answer: "绝对可以！您可以选择风格、颜色和其�-偏好。",
       },
     ],
     img: "/home-images/FAQ-Img.webp",
@@ -186,7 +186,7 @@ export const cn = {
         general: "一般咨询",
         support: "技术支持",
         business: "商务合作",
-        other: "其他",
+        other: "其�-",
       },
       message: "留言",
       submit: "提交",
@@ -197,7 +197,7 @@ export const cn = {
   },
   footer: {
     title: "Soulmate Art",
-    page1: "隐私政策",
+    page1: "隐私政�-",
     page2: "条款和条件",
     text: "© 2024 AI Soulmate Drawings. 版权所有。",
   },

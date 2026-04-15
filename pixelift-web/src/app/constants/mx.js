@@ -10,7 +10,7 @@ export const mx = {
     title: "Dibujo de Alma Gemela AI",
     subTitle: "Generador",
     description:
-      "Usa nuestro generador de dibujo de alma gemela con IA para crear un retrato romántico con IA y un boceto de tu futura pareja. Descubre el rostro escrito en tu destino — al instante y de forma hermosa.",
+      "Usa nuestro generador de dibujo de alma gemela con IA para crear un retrato romántico con IA y un boceto de tu futura pareja. Descubre el rostro escrito en tu destino al instante y de forma hermosa.",
     buttonText: "Mejor Generador de Arte de Alma Gemela",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "Generador de Dibujo de Alma Gemela AI",

@@ -10,7 +10,7 @@ export const it = {
     title: "Disegno Anima Gemella AI",
     subTitle: "Generatore",
     description:
-      "Usa il nostro generatore di disegni anima gemella con IA per creare un ritratto romantico con IA e uno schizzo del tuo futuro partner. Scopri il volto scritto nel tuo destino — istantaneamente e magnificamente.",
+      "Usa il nostro generatore di disegni anima gemella con IA per creare un ritratto romantico con IA e uno schizzo del tuo futuro partner. Scopri il volto scritto nel tuo destino istantaneamente e magnificamente.",
     buttonText: "Miglior Generatore di Arte Anima Gemella",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "Generatore di Disegno Anima Gemella AI",

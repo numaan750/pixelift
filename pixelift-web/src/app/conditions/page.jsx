@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Terms & Conditions – Pixelift",
+  title: "Terms & Conditions - Pixelift",
   description: "Read the Terms & Conditions for Pixelift.",
   alternates: { canonical: "/conditions" },
   robots: { index: true, follow: true },
@@ -30,3 +30,4 @@ const page = async ({ params }) => {
 };
 
 export default page;
+

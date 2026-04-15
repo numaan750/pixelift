@@ -10,7 +10,7 @@ export const uk = {
     title: "AI Soulmate Drawing",
     subTitle: "Generator",
     description:
-      "Use our AI soulmate drawing generator to create a romantic AI portrait and future partner sketch. Discover the face written in your destiny—instantly and beautifully.",
+      "Use our AI soulmate drawing generator to create a romantic AI portrait and future partner sketch. Discover the face written in your destiny instantly and beautifully.",
     buttonText: "Best Soulmate Art Generator",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "AI Soulmate Drawing Generator",
@@ -128,7 +128,7 @@ export const uk = {
       "People all over the world love using our AI to create their personalized soulmate artwork",
     testimonials: [
       {
-        text: "“I finally saw my soulmate in the drawing—it was uncanny!”",
+        text: "“I finally saw my soulmate in the drawing it was uncanny!”",
         name: "Sophie L.",
       },
       {
@@ -148,7 +148,7 @@ export const uk = {
         name: "Mia P.",
       },
       {
-        text: "“Every detail felt magical—I can’t wait to see more!”",
+        text: "“Every detail felt magical I can’t wait to see more!”",
         name: "Liam T.",
       },
     ],
@@ -195,3 +195,4 @@ export const uk = {
     text: "© 2025 Soulmate Art. Built with ❤️ by Devsrank Pvt. Ltd. All rights reserved",
   },
 };
+

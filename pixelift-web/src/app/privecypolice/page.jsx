@@ -6,7 +6,7 @@ import { ru } from "../constants/ru";
 import { us } from "../constants/us";
 
 export const metadata = {
-  title: "Privacy Policy – Pixelift",
+  title: "Privacy Policy - Pixelift",
   description: "Read the Privacy Policy for Pixelift.",
   alternates: { canonical: "/privecypolice" },
   robots: { index: true, follow: true },
@@ -30,3 +30,4 @@ const page = async ({ params }) => {
 };
 
 export default page;
+

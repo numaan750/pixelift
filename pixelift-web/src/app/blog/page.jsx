@@ -9,7 +9,7 @@ import { BLOG_POSTS } from "@/lib/blogPosts";
 import { getAllBlogPostsFromDb } from "@/lib/blogDb";
 
 export const metadata = {
-  title: "Blog – Pixelift",
+  title: "Blog - Pixelift",
   description:
     "Articles and updates about Pixelift, how it works, and tips for better results.",
   alternates: { canonical: "/blog" },
@@ -69,3 +69,4 @@ export default async function BlogIndexPage() {
     </>
   );
 }
+

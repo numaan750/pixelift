@@ -66,3 +66,4 @@ export default function BlogGridClient({ posts, initialCount = 12, step = 12 }) 
     </>
   );
 }
+

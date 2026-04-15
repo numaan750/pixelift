@@ -221,3 +221,4 @@ export function buildStructuredData({
     "@graph": compactObject(graph),
   };
 }
+

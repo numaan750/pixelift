@@ -107,3 +107,4 @@ const Magichappence = ({ magicHappens, country }) => {
 };
 
 export default Magichappence;
+

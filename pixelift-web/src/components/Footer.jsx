@@ -117,3 +117,4 @@ const Footer = ({ footer, country }) => {
 };
 
 export default Footer;
+

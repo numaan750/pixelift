@@ -8,3 +8,4 @@ export function absoluteUrl(pathname = "/") {
     return `${SITE_URL}${pathname.startsWith("/") ? pathname : `/${pathname}`}`;
   }
 }
+

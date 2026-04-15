@@ -7,3 +7,4 @@ export default function robots() {
     host: SITE_URL,
   };
 }
+

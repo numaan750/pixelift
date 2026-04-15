@@ -10,7 +10,7 @@ export const de = {
     title: "AI Soulmate Zeichnung",
     subTitle: "Generator",
     description:
-      "Nutze unseren AI-Soulmate-Zeichnungsgenerator, um ein romantisches KI-Porträt und eine Skizze deines zukünftigen Partners zu erstellen. Entdecke das Gesicht, das in deinem Schicksal geschrieben steht – sofort und wunderschön.",
+      "Nutze unseren AI-Soulmate-Zeichnungsgenerator, um ein romantisches KI-Porträt und eine Skizze deines zukünftigen Partners zu erstellen. Entdecke das Gesicht, das in deinem Schicksal geschrieben steht - sofort und wunderschön.",
     buttonText: "Bester Seelenverwandten-Kunstgenerator",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "AI Soulmate Zeichnung Generator",
@@ -50,7 +50,7 @@ export const de = {
       tag: "Schritt 2",
       title: "Die KI erweckt die Skizze",
       description:
-        "Sobald deine Angaben vorliegen, beginnt unsere fortschrittliche KI, deine Energie in Kunst zu verwandeln. Mithilfe von Numerologie, emotionalen Mustern und kosmischen Daten entsteht eine gefühlvolle Skizze – jede Linie intuitiv geführt.",
+        "Sobald deine Angaben vorliegen, beginnt unsere fortschrittliche KI, deine Energie in Kunst zu verwandeln. Mithilfe von Numerologie, emotionalen Mustern und kosmischen Daten entsteht eine gefühlvolle Skizze - jede Linie intuitiv geführt.",
       image: "/home-images/AI-Awakens-the-Sketch.webp",
       alt: "KI erweckt die Skizze",
     },
@@ -58,7 +58,7 @@ export const de = {
       tag: "Schritt 3",
       title: "Enthülle deine Seelenverwandte",
       description:
-        "Erlebe den ersten Blick auf deine Seelenverwandte, während die Skizze zum Leben erwacht. Diese Vorschau steht für emotionale Harmonie, spirituelle Verbindung und unsichtbare Bande – künstlerisch und symbolisch gestaltet.",
+        "Erlebe den ersten Blick auf deine Seelenverwandte, während die Skizze zum Leben erwacht. Diese Vorschau steht für emotionale Harmonie, spirituelle Verbindung und unsichtbare Bande - künstlerisch und symbolisch gestaltet.",
       image: "/home-images/Reveal-Your-Soulmate.webp",
       alt: "Seelenverwandte enthüllen",
     },
@@ -66,7 +66,7 @@ export const de = {
       tag: "Schritt 4",
       title: "Mit der Seelenverwandten chatten & entdecken",
       description:
-        "Lade deine Seelenverwandten-Skizze herunter und vertiefe die Reise durch bedeutungsvolle Interaktionen. Chatte, entdecke emotionale Einblicke und baue eine tiefere Verbindung auf – unterstützt durch KI und Intuition.",
+        "Lade deine Seelenverwandten-Skizze herunter und vertiefe die Reise durch bedeutungsvolle Interaktionen. Chatte, entdecke emotionale Einblicke und baue eine tiefere Verbindung auf - unterstützt durch KI und Intuition.",
       image: "/home-images/Chat-with-Soulmate-Explore.webp",
       alt: "Mit Seelenverwandter chatten & entdecken",
     },
@@ -74,7 +74,7 @@ export const de = {
   aiArt: {
     title: "Entdecke deine Seelenverwandte durch KI",
     description:
-      "Jede AI-Soulmate-Zeichnung wird einzigartig anhand deiner persönlichen Daten, Energie und intuitiven KI-Einblicke erstellt – für ein romantisches KI-Porträt.",
+      "Jede AI-Soulmate-Zeichnung wird einzigartig anhand deiner persönlichen Daten, Energie und intuitiven KI-Einblicke erstellt - für ein romantisches KI-Porträt.",
     img1: {
       url: "/home-images/ai-soulmate-romantic-portrait.png",
       alt: "Romantisches AI-Seelenverwandten-Porträt",
@@ -119,7 +119,7 @@ export const de = {
   soulmateArt: {
     title: "Entdecke alles in der Soulmate-Kunst",
     description:
-      "Erkunde die Energie, Verbindung und Liebe, die für dich bestimmt sind – eingefangen in einem kunstvoll gestalteten Seelenverwandten-Porträt.",
+      "Erkunde die Energie, Verbindung und Liebe, die für dich bestimmt sind - eingefangen in einem kunstvoll gestalteten Seelenverwandten-Porträt.",
     text1: "Nutzerzufriedenheit",
     text2: "Bewertung von 5",
     img: "/home-images/Discover-Everything-in-Soulmate-Art.webp",
@@ -131,7 +131,7 @@ export const de = {
       "Menschen auf der ganzen Welt lieben es, mit unserer KI ihre persönliche Seelenverwandten-Kunst zu erstellen",
     testimonials: [
       {
-        text: "„Ich habe meine Seelenverwandte endlich in der Zeichnung gesehen – unglaublich realistisch!“",
+        text: "„Ich habe meine Seelenverwandte endlich in der Zeichnung gesehen - unglaublich realistisch!“",
         name: "Sophie L.",
       },
       {
@@ -139,7 +139,7 @@ export const de = {
         name: "Ryan M.",
       },
       {
-        text: "„Ich habe es mit Freunden geteilt – alle waren von den Details begeistert!“",
+        text: "„Ich habe es mit Freunden geteilt - alle waren von den Details begeistert!“",
         name: "Emily K.",
       },
       {
@@ -151,7 +151,7 @@ export const de = {
         name: "Mia P.",
       },
       {
-        text: "„Jedes Detail fühlte sich magisch an – ich möchte mehr sehen!“",
+        text: "„Jedes Detail fühlte sich magisch an - ich möchte mehr sehen!“",
         name: "Liam T.",
       },
     ],
@@ -218,3 +218,4 @@ export const de = {
     text: "© 2025 Soulmate Art. Entwickelt mit ❤️ von Devsrank Pvt. Ltd. Alle Rechte vorbehalten",
   },
 };
+

@@ -10,7 +10,7 @@ export const vn = {
     title: "Vẽ Linh Hồn Song Sinh AI",
     subTitle: "Máy tạo",
     description:
-      "Dùng máy tạo vẽ linh hồn song sinh bằng AI để tạo chân dung lãng mạn bằng AI và phác họa người bạn đời tương lai. Khám phá khuôn mặt được viết trong số phận của bạn — ngay lập tức và đẹp đẽ.",
+      "Dùng máy tạo vẽ linh hồn song sinh bằng AI để tạo chân dung lãng mạn bằng AI và phác họa người bạn đời tương lai. Khám phá khuôn mặt được viết trong số phận của bạn ngay lập tức và đẹp đẽ.",
     buttonText: "Máy tạo Nghệ thuật Linh Hồn Song Sinh Tốt nhất",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "Máy tạo Vẽ Linh Hồn Song Sinh AI",

@@ -113,3 +113,4 @@ export default function SafeHtml({ html, className }) {
   const clean = sanitize(html);
   return <div className={className} dangerouslySetInnerHTML={{ __html: clean }} />;
 }
+

@@ -111,3 +111,4 @@ const FAQ = ({ faqs, country }) => {
 };
 
 export default FAQ;
+

@@ -5,7 +5,7 @@ export const countries = {
     lang: "en-US",
     name: "United States",
     currency: "USD",
-    title: "AI Soulmate Drawings – Romantic AI Portraits USA",
+    title: "AI Soulmate Drawings - Romantic AI Portraits USA",
     description:
       "Create AI soulmate drawings and romantic couple portraits in the USA.",
     faq: [
@@ -27,7 +27,7 @@ export const countries = {
     lang: "ru-RU",
     name: "Russia",
     currency: "RUB",
-    title: "AI Рисунки Родственной Души – Россия",
+    title: "AI Рисунки Родственной Души - Россия",
     description:
       "Создавайте романтические портреты пар с помощью ИИ в России.",
     faq: [
@@ -49,7 +49,7 @@ export const countries = {
     lang: "de-DE",
     name: "Germany",
     currency: "EUR",
-    title: "AI Soulmate Zeichnungen – Romantische KI-Porträts Deutschland",
+    title: "AI Soulmate Zeichnungen - Romantische KI-Porträts Deutschland",
     description:
       "Erstelle AI-Soulmate-Zeichnungen und romantische Paarporträts in Deutschland.",
     faq: [
@@ -71,7 +71,7 @@ export const countries = {
     lang: "en-GB",
     name: "United Kingdom",
     currency: "USD",
-    title: "AI Soulmate Drawings – Romantic AI Portraits UK",
+    title: "AI Soulmate Drawings - Romantic AI Portraits UK",
     description:
       "Create AI soulmate drawings and romantic couple portraits in the UK.",
     faq: [
@@ -93,8 +93,8 @@ export const countries = {
     lang: "zh-CN",
     name: "China",
     currency: "CNY",
-    title: "AI 灵魂伴侣绘画 – 中国浪漫 AI 肖像",
-    description: "在中国创建 AI 灵魂伴侣绘画和浪漫情侣肖像。",
+    title: "AI 灵魂伴侣绘画 - 中国浪漫 AI �-像",
+    description: "在中国创建 AI 灵魂伴侣绘画和浪漫情侣�-像。",
     faq: [
       {
         q: "AI 灵魂伴侣绘画免费吗？",
@@ -114,7 +114,7 @@ export const countries = {
     lang: "pt-BR",
     name: "Brazil",
     currency: "BRL",
-    title: "Desenhos de Alma Gêmea AI – Retratos Românticos de Casais no Brasil",
+    title: "Desenhos de Alma Gêmea AI - Retratos Românticos de Casais no Brasil",
     description: "Crie desenhos de alma gêmea AI e retratos românticos de casais no Brasil.",
     faq: [
       {
@@ -135,15 +135,15 @@ export const countries = {
     lang: "ja-JP",
     name: "Japan",
     currency: "JPY",
-    title: "AI ソウルメイト描画 – 日本でのロマンチックな AI ポートレート",
+    title: "AI ソウルメイト描画 - 日本でのロマンチックな AI ポートレート",
     description: "日本で AI ソウルメイト描画とロマンチックなカップルポートレートを作成。",
     faq: [
       {
-        q: "AI ソウルメイト描画は無料ですか？",
-        a: "はい、1 つの AI ソウルメイト描画を無料で生成できます。",
+        q: "AI ソウルメイト描画は無�-�ですか？",
+        a: "はい、1 つの AI ソウルメイト描画を無�-�で生成できます。",
       },
       {
-        q: "生成にかかる時間は？",
+        q: "生成にかかる時�-�は？",
         a: "通常 30 秒未満です。",
       },
       {
@@ -156,7 +156,7 @@ export const countries = {
     lang: "es-MX",
     name: "Mexico",
     currency: "MXN",
-    title: "Dibujos de Alma Gemela AI – Retratos Románticos de Parejas en México",
+    title: "Dibujos de Alma Gemela AI - Retratos Románticos de Parejas en México",
     description: "Crea dibujos de alma gemela AI y retratos románticos de parejas en México.",
     faq: [
       {
@@ -177,7 +177,7 @@ export const countries = {
     lang: "fr-FR",
     name: "France",
     currency: "EUR",
-    title: "Dessins d'Âme Sœur IA – Portraits Romantiques de Couples en France",
+    title: "Dessins d'Âme Sœur IA - Portraits Romantiques de Couples en France",
     description: "Créez des dessins d'âme sœur IA et des portraits romantiques de couples en France.",
     faq: [
       {
@@ -198,7 +198,7 @@ export const countries = {
     lang: "vi-VN",
     name: "Vietnam",
     currency: "VND",
-    title: "Vẽ Linh Hồn Song Sinh AI – Chân Dung Lãng Mạn Của Cặp Đôi Tại Việt Nam",
+    title: "Vẽ Linh Hồn Song Sinh AI - Chân Dung Lãng Mạn Của Cặp Đôi Tại Việt Nam",
     description: "Tạo vẽ linh hồn song sinh AI và chân dung lãng mạn của cặp đôi tại Việt Nam.",
     faq: [
       {
@@ -219,7 +219,7 @@ export const countries = {
     lang: "it-IT",
     name: "Italy",
     currency: "EUR",
-    title: "Disegni Anima Gemella AI – Ritratto Romantico di Coppie in Italia",
+    title: "Disegni Anima Gemella AI - Ritratto Romantico di Coppie in Italia",
     description: "Crea disegni anima gemella AI e ritratti romantici di coppie in Italia.",
     faq: [
       {
@@ -240,7 +240,7 @@ export const countries = {
     lang: "ar-SA",
     name: "Saudi Arabia",
     currency: "SAR",
-    title: "رسومات الروح التوأم الذكاء الاصطناعي – صور رومانسية للأزواج في المملكة العربية السعودية",
+    title: "رسومات الروح التوأم الذكاء الاصطناعي - صور رومانسية للأزواج في المملكة العربية السعودية",
     description: "أنشئ رسومات الروح التوأم الذكاء الاصطناعي وصور رومانسية للأزواج في المملكة العربية السعودية.",
     faq: [
       {
@@ -269,4 +269,5 @@ export const hreflangLanguages = {
   ),
   "x-default": "/",
 };
+
 

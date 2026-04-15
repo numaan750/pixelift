@@ -16,7 +16,7 @@ export const BLOG_POSTS = [
     slug: "soulmate-sketch-ai-tips",
     title: "Soulmate Sketch AI: 9 Practical Tips for Better Results",
     description:
-      "Improve your soulmate sketch AI results with simple, practical tips—from prompt clarity to style consistency and iteration.",
+      "Improve your soulmate sketch AI results with simple, practical tips from prompt clarity to style consistency and iteration.",
     excerpt:
       "Make your soulmate sketch AI results more consistent and satisfying with nine practical tips you can apply right away.",
     date: "2026-01-02",
@@ -31,7 +31,7 @@ export const BLOG_POSTS = [
     description:
       "What a future partner drawing from AI typically looks like and how to guide the style, vibe, and details without overprompting.",
     excerpt:
-      "A clear explanation of what you receive from a future partner AI drawing—and how to guide the style without overdoing it.",
+      "A clear explanation of what you receive from a future partner AI drawing and how to guide the style without overdoing it.",
     date: "2026-01-02",
     relatedSlugs: [
       "soulmate-sketch-ai-tips",
@@ -70,7 +70,7 @@ export const BLOG_POSTS = [
     description:
       "A privacy-first checklist for AI soulmate drawings: what inputs to share, what not to share, and how to stay comfortable.",
     excerpt:
-      "A practical privacy checklist for AI soulmate drawings—what to share, what to avoid, and how to stay comfortable.",
+      "A practical privacy checklist for AI soulmate drawings what to share, what to avoid, and how to stay comfortable.",
     date: "2026-01-02",
     relatedSlugs: [
       "how-accurate-are-ai-soulmate-drawings",
@@ -82,3 +82,4 @@ export const BLOG_POSTS = [
 export function getPostBySlug(slug) {
   return BLOG_POSTS.find((post) => post.slug === slug) || null;
 }
+

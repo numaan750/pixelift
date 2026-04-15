@@ -471,3 +471,4 @@ const MyGallery = ({ onMessageSent }) => {
 };
 
 export default MyGallery;
+

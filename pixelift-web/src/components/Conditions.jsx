@@ -49,9 +49,9 @@ const TermsConditions = () => {
         </p>
         <p className="text-white text-base md:text-lg leading-relaxed mt-6">
           b. Consent to Use of Data: You agree that Licensor may collect and use
-          technical data and related information—including but not limited to
+          technical data and related information including but not limited to
           technical information about your device, system and application
-          software, and peripherals—that is gathered periodically to facilitate
+          software, and peripherals that is gathered periodically to facilitate
           the provision of software updates, product support, and other services
           to you (if any) related to the Licensed Application. Licensor may use
           this information, as long as it is in a form that does not personally
@@ -189,3 +189,4 @@ const TermsConditions = () => {
 };
 
 export default TermsConditions;
+

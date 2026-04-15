@@ -900,3 +900,4 @@ const PhotoTools = ({ onMessageSent }) => {
 };
 
 export default PhotoTools;
+

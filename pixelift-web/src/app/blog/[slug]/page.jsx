@@ -209,7 +209,7 @@ function PostBody({ slug }) {
             If you’re curious what your future partner might look like, the AI
             Soulmate Drawing Generator is a simple way to turn a few personal
             details into a romantic AI portrait. The goal isn’t to replace real
-            relationships—it’s to create a fun, shareable sketch-style result
+            relationships it’s to create a fun, shareable sketch-style result
             that feels personal and surprisingly specific.
           </p>
 
@@ -237,7 +237,7 @@ function PostBody({ slug }) {
               cinematic”) usually works better than many vague adjectives.
             </li>
             <li>
-              <span className="font-medium text-white">Try 2–3 runs:</span>{" "}
+              <span className="font-medium text-white">Try 2-3 runs:</span>{" "}
               Generate a few versions and pick the one that feels most “right”.
             </li>
           </ol>
@@ -292,7 +292,7 @@ function PostBody({ slug }) {
           <ol className="list-decimal pl-5 space-y-2">
             <li>
               <span className="font-medium text-white">Pick one style:</span>{" "}
-              sketch, realistic, cinematic, or anime—don’t mix.
+              sketch, realistic, cinematic, or anime don’t mix.
             </li>
             <li>
               <span className="font-medium text-white">Use 1 mood:</span> warm,
@@ -302,7 +302,7 @@ function PostBody({ slug }) {
               <span className="font-medium text-white">
                 Keep details tight:
               </span>{" "}
-              3–5 strong descriptors beat 20 vague ones.
+              3-5 strong descriptors beat 20 vague ones.
             </li>
             <li>
               <span className="font-medium text-white">
@@ -318,7 +318,7 @@ function PostBody({ slug }) {
             </li>
             <li>
               <span className="font-medium text-white">
-                Try 2–3 iterations:
+                Try 2-3 iterations:
               </span>{" "}
               pick the best and refine.
             </li>
@@ -413,7 +413,7 @@ function PostBody({ slug }) {
           </ul>
 
           <p>
-            The healthiest way to use it is as a fun, romantic concept—then use
+            The healthiest way to use it is as a fun, romantic conceptthen use
             the output as inspiration.
           </p>
 
@@ -540,7 +540,7 @@ export async function generateMetadata({ params }) {
     absoluteUrl("/home-images/See-What-Your-Soulmate-Looks-Like.webp");
 
   return {
-    title: `${post.title} – AI Soulmate Drawings`,
+    title: `${post.title} - AI Soulmate Drawings`,
     description: post.description,
     alternates: { canonical: canonicalPath },
     robots: { index: true, follow: true },

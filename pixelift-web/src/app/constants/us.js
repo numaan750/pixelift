@@ -7,13 +7,13 @@ export const us = {
     { label: "Contact Us", targetId: "contact", route: "/" },
   ],
   hero: {
-    title: "Pixelift – Transform Photos with AI Magic",
+    title: "Pixelift - Transform Photos with AI Magic",
     // subTitle: "Generator",
     description:
-      "Enhance clarity, remove distractions, restyle images, and create AI avatars—all from one powerful image editor.",
+      "Enhance clarity, remove distractions, restyle images, and create AI avatars all from one powerful image editor.",
     buttonText: "Enhance Your Image Now",
-    image: "/home-images/Pixelift – Transform Photos with AI Magic.png",
-    alt: "Pixelift – Transform Photos with AI Magic",
+    image: "/home-images/Pixelift-Transform-Photos-with-AI-Magic.png",
+    alt: "Pixelift - Transform Photos with AI Magic",
   },
   magicalCore: {
     title: "AI Creative Toolkit",
@@ -58,7 +58,7 @@ export const us = {
       tag: "Step 3",
       title: "AI Generates Your Image",
       description:
-        "Once a feature is selected, our advanced AI engine automatically analyzes your image in real time. The system detects details to deliver precise and natural-looking results.Within seconds, Your enhanced image is now ready to share, publish, or use professionally — all in just a few clicks.",
+        "Once a feature is selected, our advanced AI engine automatically analyzes your image in real time. The system detects details to deliver precise and natural-looking results.Within seconds, Your enhanced image is now ready to share, publish, or use professionally all in just a few clicks.",
       image: "/home-images/AI-Generates-Your-Image.png",
       alt: "AI Generates Your Image",
     },
@@ -218,3 +218,4 @@ export const us = {
     text: "© 2025 Pixelift. Built with ❤️ by Devsrank Pvt. Ltd. All rights reserved",
   },
 };
+

@@ -319,7 +319,6 @@ const ResultScreen = ({
           </button>
         </div>
 
-        {/* Row 2 — SAVE */}
         <div className="flex w-full sm:w-[400px]">
           <button
             onClick={handleSave}
@@ -778,3 +777,4 @@ const PhotoTools = ({ onMessageSent }) => {
 };
 
 export default PhotoTools;
+

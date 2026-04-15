@@ -10,7 +10,7 @@ export const br = {
     title: "Desenho de Alma Gêmea AI",
     subTitle: "Gerador",
     description:
-      "Use nosso gerador de desenho de alma gêmea com IA para criar um retrato romântico em IA e um esboço do seu futuro parceiro. Descubra o rosto escrito no seu destino — instantaneamente e de forma linda.",
+      "Use nosso gerador de desenho de alma gêmea com IA para criar um retrato romântico em IA e um esboço do seu futuro parceiro. Descubra o rosto escrito no seu destino instantaneamente e de forma linda.",
     buttonText: "Melhor Gerador de Arte de Alma Gêmea",
     image: "/home-images/See-What-Your-Soulmate-Looks-Like.webp",
     alt: "Gerador de Desenho de Alma Gêmea AI",
@@ -109,7 +109,7 @@ export const br = {
         name: "Carlos Oliveira",
       },
       {
-        text: "Gostei muito dos detalhes — ficou lindo!",
+        text: "Gostei muito dos detalhes  ficou lindo!",
         name: "Ana P.",
       },
       {

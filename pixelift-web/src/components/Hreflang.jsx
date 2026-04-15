@@ -18,3 +18,4 @@ export default function Hreflang({ current }) {
     </>
   );
 }
+

@@ -227,3 +227,4 @@ const AIart = ({ aiArt, country }) => {
 };
 
 export default AIart;
+
