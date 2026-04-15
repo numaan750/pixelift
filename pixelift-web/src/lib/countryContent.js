@@ -1,5 +1,18 @@
 import { countries } from "./countries";
-import { us, ru, de, uk, cn, br, jp, mx, fr, vn, it, sa } from "@/app/constants";
+import {
+  us,
+  ru,
+  de,
+  uk,
+  cn,
+  br,
+  jp,
+  mx,
+  fr,
+  vn,
+  it,
+  sa,
+} from "@/app/constants";
 import { SUPPORTED_LOCALES } from "./locales";
 
 // Keep generated/valid locale routes constrained to a fixed allowlist.
@@ -41,14 +54,13 @@ function normalizeTestimonials(testimonial, fallbackTestimonial) {
   const base = isObject(fallbackTestimonial) ? fallbackTestimonial : {};
   const raw = isObject(testimonial) ? testimonial : {};
 
-  let testimonials =
-    Array.isArray(raw.testimonials)
-      ? raw.testimonials
-      : Array.isArray(raw.reviews)
-        ? raw.reviews.map((r) => ({ text: r?.review, name: r?.name }))
-        : Array.isArray(base.testimonials)
-          ? base.testimonials
-          : [];
+  let testimonials = Array.isArray(raw.testimonials)
+    ? raw.testimonials
+    : Array.isArray(raw.reviews)
+      ? raw.reviews.map((r) => ({ text: r?.review, name: r?.name }))
+      : Array.isArray(base.testimonials)
+        ? base.testimonials
+        : [];
 
   // Some locales only ship 3 reviews; keep structure consistent with US (6 cards).
   const targetCount = 6;
@@ -88,7 +100,11 @@ function normalizeFaqs(faqs, fallbackFaqs) {
   const raw = isObject(faqs) ? faqs : {};
   return {
     title: pickFirstDefined(raw.title, base.title, "Frequent Asked Questions"),
-    faq: Array.isArray(raw.faq) ? raw.faq : Array.isArray(base.faq) ? base.faq : [],
+    faq: Array.isArray(raw.faq)
+      ? raw.faq
+      : Array.isArray(base.faq)
+        ? base.faq
+        : [],
     img: pickFirstDefined(raw.img, base.img, "/home-images/FAQ-Img.webp"),
     alt: pickFirstDefined(raw.alt, base.alt, "FAQ-Img.webp"),
   };
@@ -98,7 +114,12 @@ function normalizeContact(contact, fallbackContact) {
   const base = isObject(fallbackContact) ? fallbackContact : {};
   const raw = isObject(contact) ? contact : {};
 
-  const submitLabel = pickFirstDefined(raw?.form?.submit, raw.button, base.button, "Send Message");
+  const submitLabel = pickFirstDefined(
+    raw?.form?.submit,
+    raw.button,
+    base.button,
+    "Send Message",
+  );
 
   return {
     title: pickFirstDefined(raw.title, base.title, "Contact Us"),
@@ -108,7 +129,11 @@ function normalizeContact(contact, fallbackContact) {
     phone: pickFirstDefined(raw.phone, base.phone),
     button: submitLabel,
     loading: pickFirstDefined(raw.loading, base.loading, "Sending..."),
-    form: isObject(raw.form) ? raw.form : isObject(base.form) ? base.form : undefined,
+    form: isObject(raw.form)
+      ? raw.form
+      : isObject(base.form)
+        ? base.form
+        : undefined,
   };
 }
 
@@ -117,20 +142,18 @@ function normalizeFooter(footer, fallbackFooter) {
   const raw = isObject(footer) ? footer : {};
 
   const links = Array.isArray(raw.links) ? raw.links : [];
-  const privacyLabel =
-    pickFirstDefined(
-      raw.page1,
-      links.find((l) => /privacy|privac/i.test(l?.label ?? ""))?.label,
-      base.page1,
-      "Privacy Policy"
-    );
-  const termsLabel =
-    pickFirstDefined(
-      raw.page2,
-      links.find((l) => /terms|condition/i.test(l?.label ?? ""))?.label,
-      base.page2,
-      "Terms & Conditions"
-    );
+  const privacyLabel = pickFirstDefined(
+    raw.page1,
+    links.find((l) => /privacy|privac/i.test(l?.label ?? ""))?.label,
+    base.page1,
+    "Privacy Policy",
+  );
+  const termsLabel = pickFirstDefined(
+    raw.page2,
+    links.find((l) => /terms|condition/i.test(l?.label ?? ""))?.label,
+    base.page2,
+    "Terms & Conditions",
+  );
 
   return {
     title: pickFirstDefined(raw.title, base.title, "Soulmate Art"),
@@ -144,7 +167,10 @@ function normalizeSoulmateArt(soulmateArt, fallbackSoulmateArt) {
   const base = isObject(fallbackSoulmateArt) ? fallbackSoulmateArt : {};
   const raw = isObject(soulmateArt) ? soulmateArt : {};
 
-  const fallbackImg = pickFirstDefined(base.img, "/home-images/Discover-Everything-in-Soulmate-Art.webp");
+  const fallbackImg = pickFirstDefined(
+    base.img,
+    "/home-images/Discover-Everything-in-Soulmate-Art.webp",
+  );
   const imgFromFeatures = raw?.features?.[0]?.image;
   const altFromFeatures = raw?.features?.[0]?.alt;
 
@@ -242,6 +268,8 @@ function normalizeMagicalCore(magicalCore, fallbackMagicalCore) {
   const features = (rawFeatures ?? baseFeatures).map((f) => ({
     Imge: pickFirstDefined(f?.Imge, f?.image),
     alt: f?.alt,
+    label: f?.label,
+    description: f?.description,
   }));
 
   return {
@@ -305,4 +333,3 @@ export function getCountryContent(country) {
   const raw = COUNTRY_CONTENT[code] || us;
   return normalizeCountryContent(raw, us);
 }
-

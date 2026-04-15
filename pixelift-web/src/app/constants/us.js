@@ -21,16 +21,22 @@ export const us = {
       "Explore a powerful collection of AI-driven creative tools designed to transform your photos instantly. Pixelift lets you experiment, express, and create without limits.",
     features: [
       {
-        Imge: "/home-images/Creative-hub-for-smart-stunning-images.webp",
-        alt: "Creative-hub-for-smart,-stunning-images.webp",
+        Imge: "/images/IMAGE-UTILITIES.png",
+        alt: "Creative-hub-for-smart,-stunning-images",
+        label: "image utilities",
+        description: "Creative hub for smart, stunning images",
       },
       {
-        Imge: "/home-images/Remove-distractions-with-a-single-touch.webp",
-        alt: "Remove-distractions-with-a-single-touch.webp",
+        Imge: "/images/MAGIC-REMOVER.png",
+        alt: "Remove-distractions-with-a-single-touch",
+        label: "Magic Remover",
+        description: "Remove distractions with a single touch",
       },
       {
-        Imge: "/home-images/Instantly-restyle-your-photos-with-flair.webp",
-        alt: "Instantly-restyle-your-photos-with-flair.webp",
+        Imge: "/images/FUN-PRESET.png",
+        alt: "Instantly-restyle-your-photos-with-flair",
+        label: "Fun Presets",
+        description: "Instantly restyle your photos with flair",
       },
     ],
   },
@@ -218,4 +224,3 @@ export const us = {
     text: "© 2025 Pixelift. Built with ❤️ by Devsrank Pvt. Ltd. All rights reserved",
   },
 };
-

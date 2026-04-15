@@ -27,24 +27,39 @@ const Magicalcore = ({ magicalCore, country }) => {
           {magicalCore?.features?.map((feature, index) => (
             <div
               key={index}
-              className="relative flex flex-col items-center w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)]"
+              className="relative bg-[#1D2933] rounded-[50px] overflow-hidden cursor-pointer w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)]"
             >
-              <a
-                href="/portal/login"
-                className="w-full block"
-              >
-                <Image
-                  src={feature.Imge}
-                  alt={altFromSrcOrAlt({
-                    alt: feature.alt,
-                    src: feature.Imge,
-                    locale: country,
-                  })}
-                  width={700}
-                  height={200}
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
-                  className="w-full h-auto object-contain"
-                />
+              <a href="/portal/login" className="w-full block">
+                <div className="relative w-full aspect-[12/7] overflow-hidden">
+                  <Image
+                    src={feature.Imge}
+                    alt={altFromSrcOrAlt({
+                      alt: feature.alt,
+                      src: feature.Imge,
+                      locale: country,
+                    })}
+                    fill
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
+                    className="object-contain object-top"
+                  />
+                </div>
+                <div className="p-3 flex items-center justify-between gap-2">
+                  <div className="ml-4">
+                    <h4 className="text-[18px] font-semibold bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF] bg-clip-text text-transparent">
+                      {feature.label}
+                    </h4>
+                    <p className="text-white/70 text-[15px]">
+                      {feature.description}
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gradient-to-r from-[#2CAA78] to-[#3B7FFF]">
+                    <img
+                      src="/svgs/ARROW.svg"
+                      alt="Arrow"
+                      className="w-4 h-4"
+                    />
+                  </div>
+                </div>
               </a>
             </div>
           ))}
@@ -55,4 +70,3 @@ const Magicalcore = ({ magicalCore, country }) => {
 };
 
 export default Magicalcore;
-
