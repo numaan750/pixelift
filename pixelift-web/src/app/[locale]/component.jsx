@@ -11,3 +11,5 @@ const Component = ({ locale }) => {
 };
 
 export default Component;
+
+
