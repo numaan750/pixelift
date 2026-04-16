@@ -15,16 +15,25 @@ import { AppContext } from "@/context/Appcontext";
 import { Toaster } from "react-hot-toast";
 import Home from "../components/pages/Home";
 import PaymentHistory from "../components/pages/PaymentHistory";
-import { MdPayment } from "react-icons/md";
 import { useRouter, useSearchParams } from "next/navigation";
+import ViewPricing from "../components/pages/ViewPricing";
+import SubscriptionStatus from "../components/pages/SubscriptionStatus";
+import ManageSubscription from "../components/pages/ManageSubscription";
+import { SUPPORT_EMAIL } from "@/lib/site";
+import Link from "next/link";
 
-const SoulmateSidebar = () => {
+const PixeliftSidebar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isPremium, premiumExpiryDate } = useContext(AppContext);
   const [activeSection, setActiveSection] = useState(
     searchParams.get("tab") || "home",
   );
+
+  const links = [
+    // { label: "Privacy Policy", href: "/privacy-policy" },
+    // { label: "Terms & Conditions", href: "/terms" },
+  ];
 
   useEffect(() => {
     const tab = searchParams.get("tab") || "home";
@@ -45,6 +54,11 @@ const SoulmateSidebar = () => {
   const [exteriorResetCount, setExteriorResetCount] = useState(0);
   const [gardenResetCount, setGardenResetCount] = useState(0);
   const [paymentHistoryResetCount, setPaymentHistoryResetCount] = useState(0);
+  const [viewPricingResetCount, setViewPricingResetCount] = useState(0);
+  const [subscriptionStatusResetCount, setSubscriptionStatusResetCount] =
+    useState(0);
+  const [manageSubscriptionResetCount, setManageSubscriptionResetCount] =
+    useState(0);
 
   const chatSections = [
     "interior-design",
@@ -79,7 +93,6 @@ const SoulmateSidebar = () => {
   return (
     <ProtectedRoute>
       <>
-        {/* <Toaster position="top-center" /> */}
         {!open && (
           <button
             onClick={() => setOpen(true)}
@@ -323,28 +336,14 @@ const SoulmateSidebar = () => {
                   <span className="text-sm font-medium">Premium Plans</span>
                 </button>
               )}
-
-              {/* Payment History Button */}
-              <button
-                onClick={() => {
-                  handleSectionChange("payment-history");
-                  setActiveSubTab("payment-history");
-                  setOpen(false);
-                }}
-                className={`w-full text-left cursor-pointer px-4 py-3 rounded-full flex items-center gap-3 hover:bg-[#12171B] group ${
-                  activeSection === "payment-history" ? "bg-[#12171B]" : ""
-                }`}
-              >
-                <MdPayment
-                  size={20}
-                  className={
-                    activeSection === "payment-history"
-                      ? "text-[#3B7FFF]"
-                      : "text-white"
-                  }
-                />
-                <span
-                  className="text-sm font-medium"
+              <div className="px-4 pt-3">
+                <button
+                  onClick={() => {
+                    handleSectionChange("payment-history");
+                    setActiveSubTab("payment-history");
+                    setOpen(false);
+                  }}
+                  className="text-[14px] font-medium cursor-pointer underline group cursor-pointer"
                   style={
                     activeSection === "payment-history"
                       ? {
@@ -353,18 +352,192 @@ const SoulmateSidebar = () => {
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
                         }
-                      : {}
+                      : { color: "white" }
                   }
+                  onMouseEnter={(e) => {
+                    if (activeSection !== "payment-history") {
+                      e.target.style.background =
+                        "linear-gradient(to right, #3B7FFF, #2CAA78)";
+                      e.target.style.WebkitBackgroundClip = "text";
+                      e.target.style.WebkitTextFillColor = "transparent";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== "payment-history") {
+                      e.target.style.background = "none";
+                      e.target.style.WebkitBackgroundClip = "unset";
+                      e.target.style.WebkitTextFillColor = "white";
+                    }
+                  }}
                 >
                   Payment History
-                </span>
-              </button>
-              <div className="px-4 py-3 flex items-center gap-3">
-                <a
-                  href="mailto:support@pixelift.com"
-                  className="text-sm font-medium text-white transition-all duration-200 hover:text-[#3B7FFF] underline"
+                </button>
+              </div>
+              <div className="px-4">
+                <button
+                  onClick={() => {
+                    handleSectionChange("manage-subscription");
+                    setActiveSubTab("manage-subscription");
+                    setOpen(false);
+                  }}
+                  className="text-[14px] font-medium cursor-pointer underline"
+                  style={
+                    activeSection === "manage-subscription"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #3B7FFF, #2CAA78)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : { color: "white" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (activeSection !== "manage-subscription") {
+                      e.target.style.background =
+                        "linear-gradient(to right, #3B7FFF, #2CAA78)";
+                      e.target.style.WebkitBackgroundClip = "text";
+                      e.target.style.WebkitTextFillColor = "transparent";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== "manage-subscription") {
+                      e.target.style.background = "none";
+                      e.target.style.WebkitBackgroundClip = "unset";
+                      e.target.style.WebkitTextFillColor = "white";
+                    }
+                  }}
                 >
-                  support@pixelift.com
+                  Manage Subscription
+                </button>
+              </div>
+              <div className="px-4">
+                <button
+                  onClick={() => {
+                    handleSectionChange("view-pricing");
+                    setActiveSubTab("view-pricing");
+                    setOpen(false);
+                  }}
+                  className="text-[14px] font-medium cursor-pointer underline"
+                  style={
+                    activeSection === "view-pricing"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #3B7FFF, #2CAA78)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : { color: "white" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (activeSection !== "view-pricing") {
+                      e.target.style.background =
+                        "linear-gradient(to right, #3B7FFF, #2CAA78)";
+                      e.target.style.WebkitBackgroundClip = "text";
+                      e.target.style.WebkitTextFillColor = "transparent";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== "view-pricing") {
+                      e.target.style.background = "none";
+                      e.target.style.WebkitBackgroundClip = "unset";
+                      e.target.style.WebkitTextFillColor = "white";
+                    }
+                  }}
+                >
+                  View Pricing
+                </button>
+              </div>
+              <div className="px-4">
+                <button
+                  onClick={() => {
+                    handleSectionChange("subscription-status");
+                    setActiveSubTab("subscription-status");
+                    setOpen(false);
+                  }}
+                  className="text-[14px] font-medium cursor-pointer underline"
+                  style={
+                    activeSection === "subscription-status"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #3B7FFF, #2CAA78)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : { color: "white" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (activeSection !== "subscription-status") {
+                      e.target.style.background =
+                        "linear-gradient(to right, #3B7FFF, #2CAA78)";
+                      e.target.style.WebkitBackgroundClip = "text";
+                      e.target.style.WebkitTextFillColor = "transparent";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== "subscription-status") {
+                      e.target.style.background = "none";
+                      e.target.style.WebkitBackgroundClip = "unset";
+                      e.target.style.WebkitTextFillColor = "white";
+                    }
+                  }}
+                >
+                  Subscription Status
+                </button>
+              </div>
+              <div className="px-4">
+                <button
+                  onClick={() => {
+                    handleSectionChange("open-creem-billing");
+                    setActiveSubTab("open-creem-billing");
+                    setOpen(false);
+                  }}
+                  className="text-[14px] font-medium cursor-pointer underline"
+                  style={
+                    activeSection === "open-creem-billing"
+                      ? {
+                          background:
+                            "linear-gradient(to right, #3B7FFF, #2CAA78)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : { color: "white" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (activeSection !== "open-creem-billing") {
+                      e.target.style.background =
+                        "linear-gradient(to right, #3B7FFF, #2CAA78)";
+                      e.target.style.WebkitBackgroundClip = "text";
+                      e.target.style.WebkitTextFillColor = "transparent";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== "open-creem-billing") {
+                      e.target.style.background = "none";
+                      e.target.style.WebkitBackgroundClip = "unset";
+                      e.target.style.WebkitTextFillColor = "white";
+                    }
+                  }}
+                >
+                  Open Creem Billing
+                </button>
+              </div>
+              <div className="mt-4 px-4 text-xs text-white space-y-2">
+                {/* {links.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block underline underline-offset-2"
+                  >
+                    {item.label}
+                  </Link>
+                ))} */}
+                <a
+                  href={`mailto:${SUPPORT_EMAIL}`}
+                  onClick={() => setOpen(false)}
+                  className="block underline underline-offset-2"
+                >
+                  {SUPPORT_EMAIL}
                 </a>
               </div>
             </div>
@@ -383,6 +556,13 @@ const SoulmateSidebar = () => {
                       {activeSection === "my-gallery" && "History"}
                       {activeSection === "premium-plans" && "Premium Plans"}
                       {activeSection === "payment-history" && "Payment History"}
+                      {activeSection === "view-pricing" && "View Pricing"}
+                      {activeSection === "subscription-status" &&
+                        "Subscription Status & Cancel"}
+                      {activeSection === "manage-subscription" &&
+                        "Manage Subscription"}
+                      {activeSection === "open-creem-billing" &&
+                        "Open Creem Billing"}
                     </h3>
                     <div className="flex items-center gap-3  cursor-pointer">
                       {!isPremium && (
@@ -460,6 +640,21 @@ const SoulmateSidebar = () => {
                     {activeSection === "payment-history" && (
                       <PaymentHistory key={paymentHistoryResetCount} />
                     )}
+                    {activeSection === "view-pricing" && (
+                      <ViewPricing key={viewPricingResetCount} />
+                    )}
+                    {activeSection === "subscription-status" && (
+                      <SubscriptionStatus key={subscriptionStatusResetCount} />
+                    )}
+                    {activeSection === "manage-subscription" && (
+                      <ManageSubscription
+                        key={manageSubscriptionResetCount}
+                        handleSectionChange={handleSectionChange}
+                      />
+                    )}
+                    {activeSection === "open-creem-billing" && (
+                      <ManageSubscription />
+                    )}
                   </div>
                 </div>
               </div>
@@ -475,12 +670,12 @@ const SoulmateSidebar = () => {
   );
 };
 
-const SoulmateSidebarWrapper = () => {
+const pixeliftSidebarWrapper = () => {
   return (
     <Suspense fallback={null}>
-      <SoulmateSidebar />
+      <PixeliftSidebar />
     </Suspense>
   );
 };
 
-export default SoulmateSidebarWrapper;
+export default pixeliftSidebarWrapper;
