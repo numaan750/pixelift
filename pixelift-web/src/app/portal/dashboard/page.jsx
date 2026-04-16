@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useContext, useState } from "react";
+import React, { Suspense, useContext, useState, useEffect } from "react";
 import Interior from "../components/pages/ImageUtilities";
 import Exterior from "../components/pages/MagicRemove";
 import Garden from "../components/pages/FunPresets";
@@ -16,10 +16,21 @@ import { Toaster } from "react-hot-toast";
 import Home from "../components/pages/Home";
 import PaymentHistory from "../components/pages/PaymentHistory";
 import { MdPayment } from "react-icons/md";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SoulmateSidebar = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { isPremium, premiumExpiryDate } = useContext(AppContext);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState(
+    searchParams.get("tab") || "home",
+  );
+
+  useEffect(() => {
+    const tab = searchParams.get("tab") || "home";
+    setActiveSection(tab);
+  }, [searchParams]);
+
   const [activeSubTab, setActiveSubTab] = useState(null);
   const [isPremiumPopupOpen, setIsPremiumPopupOpen] = useState(false);
   const [soulmateStep, setSoulmateStep] = useState(1);
@@ -49,6 +60,7 @@ const SoulmateSidebar = () => {
     } else {
       setActiveSection(section);
       setHasMessages(false);
+      router.push(`?tab=${section}`, { scroll: false });
     }
   };
 
@@ -67,7 +79,7 @@ const SoulmateSidebar = () => {
   return (
     <ProtectedRoute>
       <>
-        <Toaster position="top-center" />
+        {/* <Toaster position="top-center" /> */}
         {!open && (
           <button
             onClick={() => setOpen(true)}
@@ -206,6 +218,7 @@ const SoulmateSidebar = () => {
               <button
                 onClick={() => {
                   setActiveSection("garden-design");
+                  router.push(`?tab=garden-design`, { scroll: false });
                   setActiveSubTab("garden-design");
                   setGardenResetCount((prev) => prev + 1);
                   setOpen(false);
@@ -462,4 +475,12 @@ const SoulmateSidebar = () => {
   );
 };
 
-export default SoulmateSidebar;
+const SoulmateSidebarWrapper = () => {
+  return (
+    <Suspense fallback={null}>
+      <SoulmateSidebar />
+    </Suspense>
+  );
+};
+
+export default SoulmateSidebarWrapper;

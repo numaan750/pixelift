@@ -8,7 +8,8 @@ import toast from "react-hot-toast";
 
 const PremiumPopup = ({ isOpen, onClose }) => {
   const [plan, setPlan] = useState("yearly");
-  const { activatePremium } = useContext(AppContext);
+  // const { activatePremium } = useContext(AppContext);
+const { activatePremium, token } = useContext(AppContext);
   const [activating, setActivating] = useState(false);
 
   if (!isOpen) return null;
@@ -176,10 +177,10 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                 </div>
               </div>
               <div
-                onClick={() => setPlan("weekly")}
+onClick={() => setPlan("monthly")}
                 className={`cursor-pointer rounded-full sm:rounded-full px-3 sm:px-4 py-2 sm:py-3 border border-[#3B7FFF] transition relative mb-4
                 ${
-                  plan === "weekly"
+                  plan === "monthly"
                     ? " bg-gradient-to-r from-[#3B7FFF]/40 to-[#2CAA78]/40"
                     : "border-[#3B7FFF]/90"
                 }
@@ -190,17 +191,17 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                     <div
                       className={`w-5 h-5 rounded-full border border-[#3B7FFF] flex items-center justify-center font-bold shrink-0
                       ${
-                        plan === "weekly"
+                        plan === "monthly"
                           ? " bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white"
                           : "border-[#3B7FFF]/90"
                       }
                     `}
                     >
-                      {plan === "weekly" && "✓"}
+                      {plan === "monthly" && "✓"}
                     </div>
 
                     <p className="font-semibold text-[12px] sm:text-[16px]">
-                      Weekly Plan
+                     Monthly Plan
                     </p>
                   </div>
 
@@ -232,7 +233,33 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                 //     );
                 //   }
                 // }}
-                onClick={() => setActivating(true)}
+                // onClick={() => setActivating(true)}
+               onClick={async () => {
+  try {
+    setActivating(true);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/creem/checkout`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ plan }),
+      }
+    );
+    const data = await response.json();
+    if (data.status === "success") {
+      window.location.href = data.checkoutUrl;
+    } else {
+      toast.error("Could not start checkout. Please try again.");
+      setActivating(false);
+    }
+  } catch (err) {
+    toast.error("Network error. Please try again.");
+    setActivating(false);
+  }
+}}
                 disabled={activating}
                 className="w-full mb-4 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] cursor-pointer text-white px-4 py-3 sm:py-4 rounded-full font-semibold hover:bg-[#98ADEE] transition text-sm sm:text-base disabled:opacity-70 flex items-center justify-center relative"
               >

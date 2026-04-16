@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+   background-color: #12171B;
+}
+
 .mycontainer {
   width: 90%;
   max-width: 1440px;

@@ -362,126 +362,6 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  // const createShareableLink = async (shareData) => {
-  //   try {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     const response = await fetch(`${API_URL}/api/share/create`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify(shareData),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.status !== "success") {
-  //       setError(data.message);
-  //       throw new Error(data.message);
-  //     }
-
-  //     setLoading(false);
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Create shareable link error:", error);
-  //     setError("Failed to create shareable link. Please try again.");
-  //     setLoading(false);
-  //     throw error;
-  //   }
-  // };
-
-  // const getSharedContent = async (slug) => {
-  //   try {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     const response = await fetch(`${API_URL}/api/share/${slug}`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.status !== "success") {
-  //       setError(data.message);
-  //       throw new Error(data.message);
-  //     }
-
-  //     setLoading(false);
-  //     return data.data;
-  //   } catch (error) {
-  //     console.error("Get shared content error:", error);
-  //     setError("Failed to load shared content.");
-  //     setLoading(false);
-  //     throw error;
-  //   }
-  // };
-
-  // const getUserSharedContent = async () => {
-  //   try {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     const response = await fetch(`${API_URL}/api/share/my-shares`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.status !== "success") {
-  //       setError(data.message);
-  //       throw new Error(data.message);
-  //     }
-
-  //     setLoading(false);
-  //     return data.data;
-  //   } catch (error) {
-  //     console.error("Get user shared content error:", error);
-  //     setError("Failed to load your shared content.");
-  //     setLoading(false);
-  //     throw error;
-  //   }
-  // };
-
-  // const deleteSharedContent = async (slug) => {
-  //   try {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     const response = await fetch(`${API_URL}/api/share/${slug}`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.status !== "success") {
-  //       setError(data.message);
-  //       throw new Error(data.message);
-  //     }
-
-  //     setLoading(false);
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Delete shared content error:", error);
-  //     setError("Failed to delete shared content.");
-  //     setLoading(false);
-  //     throw error;
-  //   }
-  // };
-
   const loginWithGoogle = () => {
     return new Promise((resolve, reject) => {
       try {
@@ -681,10 +561,6 @@ const AppProvider = ({ children }) => {
         requestPasswordReset,
         verifyResetCode,
         resetPassword,
-        // createShareableLink,
-        // getSharedContent,
-        // getUserSharedContent,
-        // deleteSharedContent,
         loginWithGoogle,
         soulmateCache,
         setSoulmateCache,
@@ -696,6 +572,8 @@ const AppProvider = ({ children }) => {
         generateDesign,
         gallery,
         fetchGallery,
+        setIsPremium,
+        setPremiumExpiryDate,
       }}
     >
       {children}
@@ -703,4 +581,3 @@ const AppProvider = ({ children }) => {
   );
 };
 export default AppProvider;
-

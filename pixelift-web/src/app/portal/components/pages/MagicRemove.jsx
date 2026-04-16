@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import HomeAuraLoadingScreen from "../PixeliftLoadingScreen";
 import { RiEdit2Fill } from "react-icons/ri";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { GiSaveArrow } from "react-icons/gi";
 import { AppContext } from "@/context/Appcontext";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const tools = [
   {
@@ -981,7 +982,7 @@ const UploadScreen = ({ tool, onBack, onMessageSent }) => {
 const ToolCard = ({ tool, onClick }) => (
   <div
     onClick={() => onClick(tool)}
-   className="relative bg-[#1D2933] [40px] sm:rounded-[45px]  overflow-hidden cursor-pointer"
+    className="relative bg-[#1D2933] [40px] sm:rounded-[45px]  overflow-hidden cursor-pointer"
   >
     {" "}
     <div className="relative w-full aspect-[15/10]">
@@ -1006,12 +1007,24 @@ const ToolCard = ({ tool, onClick }) => (
 // ─── Main Component (Screen 1) ────────────────────────────────────────────────
 const PhotoTools = ({ onMessageSent }) => {
   const [selectedTool, setSelectedTool] = useState(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const tool = searchParams.get("tool");
+    if (tool) {
+      const found = tools.find((t) => t.id === tool);
+      if (found) setSelectedTool(found);
+    } else {
+      setSelectedTool(null);
+    }
+  }, [searchParams]);
 
   if (selectedTool) {
     return (
       <UploadScreen
         tool={selectedTool}
-        onBack={() => setSelectedTool(null)}
+        onBack={() => router.push(`?tab=exterior-design`, { scroll: false })}
         onMessageSent={onMessageSent}
       />
     );
@@ -1024,7 +1037,15 @@ const PhotoTools = ({ onMessageSent }) => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {tools.map((tool) => (
-          <ToolCard key={tool.id} tool={tool} onClick={setSelectedTool} />
+          <ToolCard
+            key={tool.id}
+            tool={tool}
+            onClick={(t) => {
+              router.push(`?tab=exterior-design&tool=${t.id}`, {
+                scroll: false,
+              });
+            }}
+          />
         ))}
       </div>
     </div>
@@ -1032,4 +1053,3 @@ const PhotoTools = ({ onMessageSent }) => {
 };
 
 export default PhotoTools;
-

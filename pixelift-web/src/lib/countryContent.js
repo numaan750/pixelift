@@ -270,6 +270,7 @@ function normalizeMagicalCore(magicalCore, fallbackMagicalCore) {
     alt: f?.alt,
     label: f?.label,
     description: f?.description,
+    tab: f?.tab,
   }));
 
   return {

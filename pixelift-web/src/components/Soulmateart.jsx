@@ -1,11 +1,28 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { FaApple } from "react-icons/fa";
 import { altFromSrcOrAlt } from "@/lib/altText";
 
 const SoulmateArt = ({ soulmateArt, country }) => {
-  const pathname = usePathname();
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token =
+      localStorage.getItem("authToken") || localStorage.getItem("token");
+    if (token) setIsLoggedIn(true);
+  }, []);
+
+  const handlePortalClick = (e) => {
+    e.preventDefault();
+    if (isLoggedIn) {
+      router.push("/portal/dashboard");
+    } else {
+      router.push("/portal/login?mode=signup");
+    }
+  };
   const ratingCount = soulmateArt?.ratingCount ?? 137;
 
   const imageSrc =
@@ -36,22 +53,31 @@ const SoulmateArt = ({ soulmateArt, country }) => {
             </p>
 
             <div className="flex gap-4 flex-wrap">
-              <a
-                href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/home-images/App-Store.png"
-                  alt={altFromSrcOrAlt({
-                    alt: "App-Store.png",
-                    locale: country,
-                  })}
-                  width={180}
-                  height={60}
-                  className="h-11 md:h-12 w-auto cursor-pointer"
-                />
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={handlePortalClick}
+                  className="relative group cursor-pointer overflow-hidden inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] text-white font-medium px-5 sm:px-6 py-3 rounded-full w-fit"
+                >
+                  <span className="relative z-10 text-[14px] sm:text-[16px]">
+                    {isLoggedIn ? "Dashboard" : "Get Started"}
+                  </span>
+                  <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-white/20 to-transparent" />
+                </button>
+
+                <a
+                  href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="relative group cursor-pointer overflow-hidden inline-flex items-center justify-center gap-2 bg-[#12171B] text-white border border-white/20 font-medium px-5 sm:px-6 py-3 rounded-full w-fit hover:bg-neutral-900 transition">
+                    <FaApple className="relative z-10 text-lg" />
+                    <span className="relative z-10 text-[14px] sm:text-[16px] whitespace-nowrap">
+                      Get the App
+                    </span>
+                    <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-white/20 to-transparent" />
+                  </button>
+                </a>
+              </div>
             </div>
 
             <div className="flex gap-12 pt-4">
@@ -84,4 +110,3 @@ const SoulmateArt = ({ soulmateArt, country }) => {
 };
 
 export default SoulmateArt;
-

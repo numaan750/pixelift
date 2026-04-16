@@ -1,13 +1,28 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { altFromSrcOrAlt } from "@/lib/altText";
 // import { MdOutlineArrowOutward } from "react-icons/md";
 
 const Magicalcore = ({ magicalCore, country }) => {
-  const pathname = usePathname();
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const token =
+      localStorage.getItem("authToken") || localStorage.getItem("token");
+    if (token) setIsLoggedIn(true);
+  }, []);
+
+  const handleCardClick = (e, tab) => {
+    e.preventDefault();
+    if (isLoggedIn) {
+      router.push(`/portal/dashboard?tab=${tab}`);
+    } else {
+      router.push("/portal/login?mode=signup");
+    }
+  };
   return (
     <section
       id="features"
@@ -27,9 +42,12 @@ const Magicalcore = ({ magicalCore, country }) => {
           {magicalCore?.features?.map((feature, index) => (
             <div
               key={index}
-              className="relative bg-[#1D2933] rounded-[50px] overflow-hidden cursor-pointer w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)]"
+              className="relative bg-[#1D2933] rounded-[50px] overflow-hidden w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-10.67px)]"
             >
-              <a href="/portal/login" className="w-full block">
+              <button
+                onClick={(e) => handleCardClick(e, feature.tab)}
+                className="w-full block text-left cursor-pointer"
+              >
                 <div className="relative w-full aspect-[12/7] overflow-hidden">
                   <Image
                     src={feature.Imge}
@@ -60,7 +78,7 @@ const Magicalcore = ({ magicalCore, country }) => {
                     />
                   </div>
                 </div>
-              </a>
+              </button>
             </div>
           ))}
         </div>
