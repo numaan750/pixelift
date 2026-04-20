@@ -17,6 +17,7 @@ const AppProvider = ({ children }) => {
   const [resetPasswordError, setResetPasswordError] = useState(null);
   const authSuccessRef = useRef(false);
   const [isPremium, setIsPremium] = useState(false);
+  const [paymentHistory, setPaymentHistory] = useState([]);
   const [premiumExpiryDate, setPremiumExpiryDate] = useState(null);
   const [credits, setCredits] = useState(0);
   const [gallery, setGallery] = useState([]);
@@ -139,6 +140,54 @@ const AppProvider = ({ children }) => {
     setIsPremium(false);
     setPremiumExpiryDate(null);
     router.replace("/login");
+  };
+  const syncPremiumStatus = async () => {
+    if (!token) return null;
+    try {
+      const response = await fetch(`${API_URL}/api/premium/status`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await response.json();
+      if (data.status === "success") {
+        setIsPremium(data.isPremium);
+        if (data.isPremium && data.premiumExpiryDate) {
+          setPremiumExpiryDate(new Date(data.premiumExpiryDate));
+          localStorage.setItem("isPremium", "true");
+          localStorage.setItem("premiumExpiryDate", data.premiumExpiryDate);
+        }
+         if (user) {
+          const updatedUser = {
+            ...user,
+            isPremium: data.isPremium,
+            premiumExpiryDate: data.premiumExpiryDate,
+            creemSubscriptionStatus: data.creemSubscriptionStatus,
+            creemLastEventType: data.creemLastEventType,
+            creemSubscriptionId: data.creemSubscriptionId,
+          };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+        }
+      }
+      return data;
+    } catch (err) {
+      return null;
+    }
+  };
+
+  const fetchPaymentHistory = async () => {
+    if (!token) return;
+    try {
+      const response = await fetch(`${API_URL}/api/premium/history`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await response.json();
+      if (data.status === "success") {
+        setPaymentHistory(data.history);
+      }
+      return data;
+    } catch (err) {
+      return null;
+    }
   };
   const activatePremium = async (plan) => {
     try {
@@ -574,6 +623,9 @@ const AppProvider = ({ children }) => {
         fetchGallery,
         setIsPremium,
         setPremiumExpiryDate,
+        paymentHistory,
+        fetchPaymentHistory,
+        syncPremiumStatus,
       }}
     >
       {children}
