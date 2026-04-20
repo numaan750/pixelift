@@ -580,7 +580,9 @@ const PixeliftSidebar = () => {
                         </button>
                       )}
 
-                      <ProfileDropdown />
+                      <ProfileDropdown
+                        handleSectionChange={handleSectionChange}
+                      />
                     </div>
                   </div>
                   <div
@@ -663,6 +665,7 @@ const PixeliftSidebar = () => {
           <PremiumPopup
             isOpen={isPremiumPopupOpen}
             onClose={() => setIsPremiumPopupOpen(false)}
+            handleSectionChange={handleSectionChange}
           />
         </div>
       </>

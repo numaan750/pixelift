@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://www.aisoulmatedrawings.com";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://www.pixelift.com";
 
 export function absoluteUrl(pathname = "/") {
   try {
@@ -10,7 +10,7 @@ export function absoluteUrl(pathname = "/") {
 }
 
 export const SUPPORT_EMAIL =
-  process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@aisoulmatedrawings.com";
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@pixelift.com";
 
 export const PUBLIC_PRICING = [
   {

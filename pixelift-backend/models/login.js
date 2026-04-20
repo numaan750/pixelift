@@ -17,7 +17,6 @@ const loginSchema = new mongoose.Schema(
         return this.provider === "local";
       },
     },
-
     googleId: {
       type: String,
       sparse: true,
@@ -48,6 +47,25 @@ const loginSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    // paymnet history k liya hy ya
+    creemCustomerId: { type: String, default: null },
+    creemSubscriptionId: { type: String, default: null },
+    creemProductId: { type: String, default: null },
+    creemLastCheckoutId: { type: String, default: null },
+    creemSubscriptionStatus: { type: String, default: null },
+    creemLastEventType: { type: String, default: null },
+    creemPaymentHistory: [
+      {
+        eventType: { type: String, default: null },
+        plan: { type: String, default: null },
+        source: { type: String, default: "creem" },
+        status: { type: String, default: null },
+        checkoutId: { type: String, default: null },
+        subscriptionId: { type: String, default: null },
+        productId: { type: String, default: null },
+        timestamp: { type: Date, default: Date.now },
+      },
+    ],
     credits: {
       type: Number,
       default: 1,

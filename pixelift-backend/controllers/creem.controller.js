@@ -8,52 +8,37 @@ export const createCheckout = async (req, res) => {
     const { plan } = req.body;
     const userId = req.user._id.toString();
 
-    const productId =
+    // Product ID ki jagah direct URL use karo
+    const baseCheckoutUrl =
       plan === "yearly"
-        ? process.env.CREEM_PRODUCT_YEARLY_ID
-        : process.env.CREEM_PRODUCT_MONTHLY_ID;
+        ? process.env.CREEM_YEARLY_CHECKOUT_URL
+        : process.env.CREEM_MONTHLY_CHECKOUT_URL;
 
-    if (!productId) {
+    if (!baseCheckoutUrl) {
       return res.status(400).json({
         status: "error",
-        message: `Product ID missing for plan: ${plan}`,
+        message: `Checkout URL missing for plan: ${plan}`,
       });
     }
+    const url = new URL(baseCheckoutUrl);
+    url.searchParams.set("metadata[userId]", userId);
+    url.searchParams.set("metadata[plan]", plan);
+    url.searchParams.set(
+      "success_url",
+      `${process.env.FRONTEND_URL}/payment/success?plan=${plan}`,
+    );
+    url.searchParams.set(
+      "cancel_url",
+      `${process.env.FRONTEND_URL}/payment/cancel`,
+    );
 
-    const response = await fetch(`${CREEM_API_URL}/checkouts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.CREEM_API_KEY,
-      },
-      body: JSON.stringify({
-        product_id: productId,
-        request_id: `${userId}-${Date.now()}`,
-        success_url: `${process.env.FRONTEND_URL}/payment/success?plan=${plan}`,
-        cancel_url: `${process.env.FRONTEND_URL}/payment/cancel`,
-        metadata: {
-          userId: userId,
-          plan: plan,
-        },
-      }),
-    });
+    const checkoutUrl = url.toString();
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error(
-        "Creem checkout error FULL:",
-        JSON.stringify(data, null, 2),
-      );
-      return res.status(400).json({
-        status: "error",
-        message: "Failed to create checkout",
-      });
-    }
+    console.log("✅ Checkout URL generated:", checkoutUrl);
 
     res.status(200).json({
       status: "success",
-      checkoutUrl: data.checkout_url || data.url,
+      checkoutUrl,
     });
   } catch (error) {
     console.error("Create checkout error:", error);
@@ -83,7 +68,7 @@ export const handleWebhook = async (req, res) => {
     const event = JSON.parse(rawBody);
 
     if (event.type === "checkout.completed") {
-      const { userId, plan } = event.data.metadata;
+      const { userId, plan } = event.data?.metadata || {};
 
       const durationMs =
         plan === "yearly"
@@ -92,12 +77,35 @@ export const handleWebhook = async (req, res) => {
 
       const expiryDate = new Date(Date.now() + durationMs);
 
+      // CHANGE: sirf isPremium nahi, saari fields update karo
       await loginSchema.findByIdAndUpdate(userId, {
         isPremium: true,
         premiumExpiryDate: expiryDate,
+        creemSubscriptionStatus: "subscription.active",
+        creemLastEventType: "checkout.completed",
+        creemLastCheckoutId: event.data?.id || null,
+        creemCustomerId: event.data?.customer_id || null,
+        creemSubscriptionId: event.data?.subscription_id || null,
+        creemProductId: event.data?.product_id || null,
+        $push: {
+          creemPaymentHistory: {
+            $each: [
+              {
+                eventType: "checkout.completed",
+                plan: plan || null,
+                source: "creem-webhook",
+                status: "checkout.completed",
+                checkoutId: event.data?.id || null,
+                subscriptionId: event.data?.subscription_id || null,
+                productId: event.data?.product_id || null,
+                timestamp: new Date(),
+              },
+            ],
+            $position: 0,
+            $slice: 100,
+          },
+        },
       });
-
-      console.log(`Premium activated for user ${userId}, plan: ${plan}`);
     }
 
     res.status(200).json({ received: true });
@@ -110,7 +118,10 @@ export const handleWebhook = async (req, res) => {
 export const checkPremiumStatus = async (req, res) => {
   try {
     const userId = req.user._id;
-    const user = await loginSchema.findById(userId);
+    const user = await loginSchema.findById(userId)
+    .select(
+        "isPremium premiumExpiryDate creemSubscriptionStatus creemLastEventType creemSubscriptionId creemCustomerId creemProductId creemLastCheckoutId creemPaymentHistory"
+      );
 
     if (
       user.isPremium &&
@@ -132,7 +143,40 @@ export const checkPremiumStatus = async (req, res) => {
       status: "success",
       isPremium: user.isPremium,
       premiumExpiryDate: user.premiumExpiryDate,
+      creemSubscriptionStatus: user.creemSubscriptionStatus,
+      creemLastEventType: user.creemLastEventType,
+      creemSubscriptionId: user.creemSubscriptionId,
       expired: false,
+    });
+  } catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+  }
+};
+
+export const getPaymentHistory = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const user = await loginSchema
+      .findById(userId)
+      .select(
+        "creemPaymentHistory isPremium premiumExpiryDate creemSubscriptionStatus",
+      )
+      .lean();
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ status: "error", message: "User not found" });
+    }
+
+    res.status(200).json({
+      status: "success",
+      history: Array.isArray(user.creemPaymentHistory)
+        ? user.creemPaymentHistory
+        : [],
+      isPremium: user.isPremium,
+      premiumExpiryDate: user.premiumExpiryDate,
+      creemSubscriptionStatus: user.creemSubscriptionStatus,
     });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
