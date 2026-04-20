@@ -7,8 +7,14 @@ export default function PaymentSuccess() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const plan = searchParams.get("plan");
-  const { token, setIsPremium, setPremiumExpiryDate, user, setUser } =
-    useContext(AppContext);
+  const {
+    token,
+    setIsPremium,
+    setPremiumExpiryDate,
+    user,
+    setUser,
+    syncPremiumStatus,
+  } = useContext(AppContext);
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
@@ -25,7 +31,7 @@ export default function PaymentSuccess() {
           `${process.env.NEXT_PUBLIC_API_URL}/api/premium/status`,
           {
             headers: { Authorization: `Bearer ${token}` },
-          }
+          },
         );
         const data = await res.json();
         if (data.isPremium) {
@@ -42,6 +48,7 @@ export default function PaymentSuccess() {
             setUser(updated);
             localStorage.setItem("user", JSON.stringify(updated));
           }
+          await syncPremiumStatus();
           router.replace("/dashboard");
         } else {
           setTimeout(() => poll(attempts + 1), 2000);
@@ -83,9 +90,7 @@ export default function PaymentSuccess() {
         ✓
       </div>
       <h2 style={{ margin: 0, fontWeight: 600 }}>Payment Successful!</h2>
-      <p style={{ color: "#aaa", margin: 0 }}>
-        Activating your {plan} plan...
-      </p>
+      <p style={{ color: "#aaa", margin: 0 }}>Activating your {plan} plan...</p>
       <div
         style={{
           width: 32,

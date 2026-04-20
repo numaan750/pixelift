@@ -1,6 +1,6 @@
-import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
+import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import session from "express-session";
@@ -13,7 +13,6 @@ import creemRoutes from "./router/creem.routes.js";
 
 const app = express();
 app.use(cors());
-// Ye line add karo express.json() se PEHLE
 app.use((req, res, next) => {
   if (req.originalUrl === "/api/creem/webhook") {
     let data = "";

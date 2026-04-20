@@ -5,8 +5,9 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { AppContext } from "../context/Appcontext";
 import Link from "next/link";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { CreditCard } from "lucide-react";
 
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ handleSectionChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const dropdownRef = useRef(null);
@@ -143,11 +144,19 @@ const ProfileDropdown = () => {
                 </div>
                 <Link
                   href="/conditions"
-                
                   className="text-white font-medium text-xs sm:text-sm"
                 >
                   Terms of Use
                 </Link>
+              </button>
+              <button
+                onClick={() => handleSectionChange("manage-subscription")}
+                className="w-full cursor-pointer px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 hover:bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] transition-all duration-200 group"
+              >
+                <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-white" />
+                <span className="text-white font-medium text-xs sm:text-sm">
+                  Manage Subscription
+                </span>
               </button>
               <button className="w-full cursor-pointer px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 hover:bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] transition-all duration-200 group">
                 <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center flex-shrink-0">
@@ -335,4 +344,3 @@ const ProfileDropdown = () => {
 };
 
 export default ProfileDropdown;
-

@@ -28,7 +28,7 @@ const Home = ({ hero, country }) => {
       className="bg-[#12171B] text-white min-h-[90vh] flex flex-col justify-center items-center relative overflow-hidden"
     >
       <div className="mycontainer flex flex-col-reverse md:flex-row items-center justify-between">
-        <div className="flex-1 flex flex-col gap-6 sm:gap-8 max-w-xl text-start md:text-left relative z-10 mt-5">
+        <div className="flex-1 flex flex-col gap-6 sm:gap-8 max-w-3xl text-start md:text-left relative z-10 mt-5">
           <h1 className="text-[32px] sm:text-[40px] lg:text-[50px] font-bold leading-tight">
             {hero?.title} <br />
           </h1>
@@ -76,7 +76,7 @@ const Home = ({ hero, country }) => {
             priority
             fetchPriority="high"
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 500px"
-            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl h-auto"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl h-auto object-contain"
           />
         </div>
       </div>

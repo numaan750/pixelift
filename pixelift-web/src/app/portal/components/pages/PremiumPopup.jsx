@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
-const PremiumPopup = ({ isOpen, onClose }) => {
+const PremiumPopup = ({ isOpen, onClose, handleSectionChange }) => {
   const [plan, setPlan] = useState("yearly");
   // const { activatePremium } = useContext(AppContext);
-const { activatePremium, token } = useContext(AppContext);
+  const { activatePremium, token } = useContext(AppContext);
   const [activating, setActivating] = useState(false);
 
   if (!isOpen) return null;
@@ -177,7 +177,7 @@ const { activatePremium, token } = useContext(AppContext);
                 </div>
               </div>
               <div
-onClick={() => setPlan("monthly")}
+                onClick={() => setPlan("monthly")}
                 className={`cursor-pointer rounded-full sm:rounded-full px-3 sm:px-4 py-2 sm:py-3 border border-[#3B7FFF] transition relative mb-4
                 ${
                   plan === "monthly"
@@ -201,7 +201,7 @@ onClick={() => setPlan("monthly")}
                     </div>
 
                     <p className="font-semibold text-[12px] sm:text-[16px]">
-                     Monthly Plan
+                      Monthly Plan
                     </p>
                   </div>
 
@@ -234,32 +234,34 @@ onClick={() => setPlan("monthly")}
                 //   }
                 // }}
                 // onClick={() => setActivating(true)}
-               onClick={async () => {
-  try {
-    setActivating(true);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/creem/checkout`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ plan }),
-      }
-    );
-    const data = await response.json();
-    if (data.status === "success") {
-      window.location.href = data.checkoutUrl;
-    } else {
-      toast.error("Could not start checkout. Please try again.");
-      setActivating(false);
-    }
-  } catch (err) {
-    toast.error("Network error. Please try again.");
-    setActivating(false);
-  }
-}}
+                onClick={async () => {
+                  try {
+                    setActivating(true);
+                    const response = await fetch(
+                      `${process.env.NEXT_PUBLIC_API_URL}/api/creem/checkout`,
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization: `Bearer ${token}`,
+                        },
+                        body: JSON.stringify({ plan }),
+                      },
+                    );
+                    const data = await response.json();
+                    if (data.status === "success") {
+                      window.location.href = data.checkoutUrl;
+                    } else {
+                      toast.error(
+                        "Could not start checkout. Please try again.",
+                      );
+                      setActivating(false);
+                    }
+                  } catch (err) {
+                    toast.error("Network error. Please try again.");
+                    setActivating(false);
+                  }
+                }}
                 disabled={activating}
                 className="w-full mb-4 bg-gradient-to-r from-[#3B7FFF] to-[#2CAA78] cursor-pointer text-white px-4 py-3 sm:py-4 rounded-full font-semibold hover:bg-[#98ADEE] transition text-sm sm:text-base disabled:opacity-70 flex items-center justify-center relative"
               >
@@ -395,6 +397,16 @@ onClick={() => setPlan("monthly")}
                 >
                   Continue With Free Plan
                 </button>
+                <button
+                  onClick={() => {
+                    setActivating(false);
+                    onClose();
+                    handleSectionChange("manage-subscription");
+                  }}
+                  className="hover:bg-gradient-to-r hover:from-[#3B7FFF] hover:to-[#2CAA78] hover:bg-clip-text hover:text-transparent cursor-pointer transition"
+                >
+                  Manage Subscription
+                </button>
                 <Link
                   href="/privecypolice"
                   className=" hover:bg-gradient-to-r hover:from-[#3B7FFF] hover:to-[#2CAA78] hover:bg-clip-text hover:text-transparent cursor-pointer transition"
@@ -421,4 +433,3 @@ onClick={() => setPlan("monthly")}
 };
 
 export default PremiumPopup;
-

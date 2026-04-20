@@ -42,13 +42,13 @@ const SoulmateArt = ({ soulmateArt, country }) => {
   return (
     <div id="apps" className="bg-[#12171B] text-white ">
       <div className="mycontainer py-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 items-center">
           <div className="space-y-8 order-2 lg:order-1">
             <h2 className="text-[24px] sm:text-[30px] md:text-[45px] font-bold leading-tight">
-              {soulmateArt?.title ?? "Discover Everything in Soulmate Art"}
+              {soulmateArt?.title ?? "Discover Everything in Pixelift"}
             </h2>
 
-            <p className="text-white text-[16px] sm:text-[18px] max-w-md">
+            <p className="text-white text-[16px] sm:text-[18px] max-w-full">
               {soulmateArt?.description}
             </p>
 
